@@ -45,7 +45,7 @@ export default function HomePage() {
             />
           </div>
           <div className="order-1 md:order-2 space-y-6">
-            <h2 className="ty-h2">
+            <h2 className="ty-h2 whitespace-pre-line">
               {ABOUT.title}
             </h2>
             <div className="space-y-4 text-muted-foreground">
@@ -53,12 +53,6 @@ export default function HomePage() {
                 <p key={index} className="ty-body">{paragraph}</p>
               ))}
             </div>
-            <Button variant="default" size="lg" className="group" asChild>
-              <Link href={ABOUT.cta.link}>
-                {ABOUT.cta.text}
-                <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
-              </Link>
-            </Button>
           </div>
         </div>
       </Section>
