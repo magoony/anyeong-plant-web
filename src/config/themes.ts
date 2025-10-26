@@ -203,6 +203,93 @@ export const themes: Record<string, Theme> = {
       shadowSoft: "270 25% 70%",
     },
   },
+
+  softMint: {
+    id: "softMint",
+    name: "Soft Mint Natural",
+    description: "부드러운 세이지 민트 · 자연톤",
+    colors: {
+      background: "42 33% 97%", // #FAF7F2
+      foreground: "25 14% 40%", // #6E6258
+      card: "42 33% 98%", // #FCFAF7
+      cardForeground: "25 14% 40%",
+      popover: "42 33% 99%",
+      popoverForeground: "25 14% 40%",
+      primary: "160 25% 55%", // soft sage mint #8AB9A8
+      primaryForeground: "42 33% 97%",
+      secondary: "38 25% 75%", // pale gold #CBBBA0
+      secondaryForeground: "25 14% 30%",
+      muted: "42 20% 94%",
+      mutedForeground: "25 14% 50%",
+      accent: "150 20% 90%", // very light mint #DEE9E2
+      accentForeground: "25 14% 30%",
+      destructive: "0 70% 60%",
+      destructiveForeground: "42 33% 97%",
+      border: "42 20% 88%",
+      input: "42 20% 88%",
+      ring: "160 25% 55%",
+      glowWarm: "38 60% 80%", // soft warm glow
+      shadowSoft: "25 20% 70%",
+    },
+  },
+
+  charcoalNight: {
+    id: "charcoalNight",
+    name: "Charcoal Night",
+    description: "다크 · 민트 포인트",
+    colors: {
+      background: "180 5% 7%", // #111415
+      foreground: "42 33% 96%", // #F7F4EF
+      card: "180 5% 10%", // #171A1B
+      cardForeground: "42 33% 96%",
+      popover: "180 5% 10%",
+      popoverForeground: "42 33% 96%",
+      primary: "172 45% 60%", // mint 400 #5FD5C9
+      primaryForeground: "180 5% 8%",
+      secondary: "42 35% 70%", // sand 400 #D9C8A9
+      secondaryForeground: "180 5% 8%",
+      muted: "180 4% 35%",
+      mutedForeground: "42 33% 88%",
+      accent: "165 15% 20%", // deep sage #23302C
+      accentForeground: "42 33% 92%",
+      destructive: "358 70% 60%", // #E25561
+      destructiveForeground: "180 5% 8%",
+      border: "180 4% 22%",
+      input: "180 4% 22%",
+      ring: "172 45% 60%",
+      glowWarm: "172 55% 52%", // mint glow
+      shadowSoft: "180 4% 40%",
+    },
+  },
+
+  warmMono: {
+    id: "warmMono",
+    name: "Warm Mono",
+    description: "웜 모노크롬 · 텍스트 중심",
+    colors: {
+      background: "42 33% 98%", // #FCFAF7
+      foreground: "25 18% 28%", // deep brown #4F463E
+      card: "42 33% 99%", // #FEFDFB
+      cardForeground: "25 18% 28%",
+      popover: "42 33% 99%",
+      popoverForeground: "25 18% 28%",
+      primary: "25 18% 28%", // brown 600 #4F463E
+      primaryForeground: "42 33% 98%",
+      secondary: "30 10% 72%", // warm gray #C9C0B8
+      secondaryForeground: "25 18% 24%",
+      muted: "30 10% 55%", // #9E948B
+      mutedForeground: "30 10% 40%",
+      accent: "42 33% 94%", // ivory highlight #F1ECE4
+      accentForeground: "25 18% 28%",
+      destructive: "0 65% 45%", // #C62839
+      destructiveForeground: "42 33% 98%",
+      border: "30 12% 86%",
+      input: "30 12% 86%",
+      ring: "25 18% 28%",
+      glowWarm: "38 45% 82%",
+      shadowSoft: "25 18% 70%",
+    },
+  },
 };
 
 export const themeList = Object.values(themes);
