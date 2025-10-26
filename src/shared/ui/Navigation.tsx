@@ -5,6 +5,7 @@ import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { Menu, X } from 'lucide-react'
 import { Button } from '@/shared/ui/shadcn/button'
+import ThemeSelector from '@/shared/ui/ThemeSelector'
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false)
@@ -62,6 +63,7 @@ const Navigation = () => {
                 </Button>
               </Link>
             ))}
+            <ThemeSelector />
             <Link href="/contact">
               <Button variant="default" className="ml-4">
                 Book Appointment
@@ -101,6 +103,10 @@ const Navigation = () => {
                   </Button>
                 </Link>
               ))}
+              <div className="flex items-center justify-between pt-2 pb-2">
+                <span className="text-sm text-muted-foreground pl-3">색상 테마</span>
+                <ThemeSelector />
+              </div>
               <Link href="/contact" onClick={() => setIsOpen(false)}>
                 <Button variant="default" className="w-full mt-2">
                   Book Appointment

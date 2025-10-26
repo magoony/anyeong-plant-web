@@ -3,6 +3,7 @@ import './globals.css'
 import { Providers } from './providers'
 import Navigation from '@/shared/ui/Navigation'
 import Footer from '@/shared/ui/Footer'
+import FloatingActionBar from '@/shared/ui/FloatingActionBar'
 
 export const metadata: Metadata = {
   title: 'Gentle Plant Dental',
@@ -25,6 +26,7 @@ export default function RootLayout({
       <body>
         <Providers>
           <Navigation />
+          <FloatingActionBar />
           <main>{children}</main>
           <Footer />
         </Providers>
