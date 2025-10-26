@@ -1,65 +1,210 @@
+import Hero from "@/shared/ui/Hero";
+import Section from "@/shared/ui/Section";
+import TreatmentCard from "@/shared/ui/TreatmentCard";
+import DoctorCard from "@/shared/ui/DoctorCard";
+import TestimonialCarousel from "@/shared/ui/TestimonialCarousel";
+import { Button } from "@/shared/ui/shadcn/button";
+import { ArrowRight } from "lucide-react";
+import Link from "next/link";
 import Image from "next/image";
+import {
+  CORE_TREATMENTS,
+  HERO,
+  ABOUT,
+  DOCTORS_SECTION,
+  TREATMENTS_SECTION,
+  PHILOSOPHY,
+  SPACE_SECTION,
+  TESTIMONIALS_SECTION,
+  CTA_SECTION,
+} from "@/constants/home";
+import { DOCTORS } from "@/constants/doctors";
+import { TESTIMONIALS } from "@/constants/testimonials";
 
-export default function Home() {
+export default function HomePage() {
+
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+    <main>
+      <Hero
+        image={HERO.image}
+        title={HERO.title}
+        subtitle={HERO.subtitle}
+        cta={HERO.cta}
+        height="h-[80vh]"
+      />
+
+      <Section>
+        <div className="grid md:grid-cols-2 gap-12 lg:gap-16 items-center">
+          <div className="order-2 md:order-1">
+            <Image
+              src={ABOUT.image}
+              alt="Anyeong Plant Dental Clinic Team"
+              width={800}
+              height={500}
+              className="rounded-lg soft-shadow w-full h-[500px] object-cover"
+            />
+          </div>
+          <div className="order-1 md:order-2 space-y-6">
+            <h2 className="ty-h2">
+              {ABOUT.title}
+            </h2>
+            <div className="space-y-4 text-muted-foreground">
+              {ABOUT.paragraphs.map((paragraph, index) => (
+                <p key={index} className="ty-body">{paragraph}</p>
+              ))}
+            </div>
+            <Button variant="default" size="lg" className="group" asChild>
+              <Link href={ABOUT.cta.link}>
+                {ABOUT.cta.text}
+                <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+              </Link>
+            </Button>
+          </div>
+        </div>
+      </Section>
+
+      <Section background="accent">
+        <div className="text-center mb-16">
+          <h2 className="ty-h2 mb-4">
+            {DOCTORS_SECTION.title}
+          </h2>
+          <p className="ty-lead text-muted-foreground max-w-2xl mx-auto">
+            {DOCTORS_SECTION.description}
           </p>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+          {DOCTORS.map((doctor) => (
+            <DoctorCard
+              key={doctor.id}
+              id={doctor.id}
+              image={doctor.image}
+              name={doctor.name}
+              title={doctor.title}
+              quote={doctor.quote}
             />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+          ))}
         </div>
-      </main>
-    </div>
+      </Section>
+
+      <Section background="card">
+        <div className="text-center mb-16">
+          <h2 className="ty-h2 mb-4">
+            {TREATMENTS_SECTION.title}
+          </h2>
+          <p className="ty-lead text-muted-foreground max-w-2xl mx-auto">
+            {TREATMENTS_SECTION.description}
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+          {CORE_TREATMENTS.map((treatment) => (
+            <TreatmentCard
+              key={treatment.title}
+              image={treatment.image}
+              title={treatment.title}
+              description={treatment.description}
+              link={treatment.link}
+            />
+          ))}
+        </div>
+      </Section>
+
+      <Section background="accent">
+        <div className="grid md:grid-cols-2 gap-16 items-center">
+          <div>
+            <Image
+              src={PHILOSOPHY.image}
+              alt="Dr. Kim"
+              width={800}
+              height={500}
+              className="rounded-lg soft-shadow w-full h-[500px] object-cover"
+            />
+          </div>
+          <div>
+            <h2 className="ty-h2 mb-6">
+              {PHILOSOPHY.title}
+            </h2>
+            {PHILOSOPHY.paragraphs.map((paragraph, index) => (
+              <p
+                key={index}
+                className="ty-body text-muted-foreground mb-6"
+              >
+                {paragraph}
+              </p>
+            ))}
+            <Link
+              href={PHILOSOPHY.link.href}
+              className="text-primary hover:underline inline-flex items-center"
+            >
+              {PHILOSOPHY.link.text}
+            </Link>
+          </div>
+        </div>
+      </Section>
+
+      <Section>
+        <div className="grid md:grid-cols-2 gap-16 items-center">
+          <div className="order-2 md:order-1">
+            <h2 className="ty-h2 mb-6">
+              {SPACE_SECTION.title}
+            </h2>
+            {SPACE_SECTION.paragraphs.map((paragraph, index) => (
+              <p
+                key={index}
+                className="ty-body text-muted-foreground mb-6"
+              >
+                {paragraph}
+              </p>
+            ))}
+            <Link
+              href={SPACE_SECTION.link.href}
+              className="text-primary hover:underline inline-flex items-center"
+            >
+              {SPACE_SECTION.link.text}
+            </Link>
+          </div>
+          <div className="order-1 md:order-2">
+            <Image
+              src={SPACE_SECTION.image}
+              alt="Our space"
+              width={800}
+              height={500}
+              className="rounded-lg soft-shadow w-full h-[500px] object-cover"
+            />
+          </div>
+        </div>
+      </Section>
+
+      <Section>
+        <div className="text-center mb-16">
+          <h2 className="ty-h2 mb-4">
+            {TESTIMONIALS_SECTION.title}
+          </h2>
+          <p className="ty-lead text-muted-foreground max-w-2xl mx-auto">
+            {TESTIMONIALS_SECTION.description}
+          </p>
+        </div>
+
+        <TestimonialCarousel testimonials={TESTIMONIALS} />
+      </Section>
+
+      <Section background="card" className="text-center">
+        <div className="max-w-3xl mx-auto">
+          <h2 className="ty-h2 mb-6">
+            {CTA_SECTION.title}
+          </h2>
+          <p className="ty-lead text-muted-foreground mb-8">
+            {CTA_SECTION.description}
+          </p>
+          <Link
+            href={CTA_SECTION.button.link}
+            className="inline-block bg-primary text-primary-foreground px-8 py-4 rounded-lg hover:warm-glow transition-all"
+          >
+            {CTA_SECTION.button.text}
+          </Link>
+        </div>
+      </Section>
+    </main>
   );
 }

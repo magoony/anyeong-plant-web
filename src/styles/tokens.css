@@ -1,0 +1,17 @@
+:root {
+  /* Font families */
+  --ff-sans: "SUIT Variable", system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans KR",
+    "Apple SD Gothic Neo", Arial, sans-serif;
+
+  /* Font sizes (clamp) */
+  --fs-display: clamp(40px, 6vw, 72px);
+  --fs-h1: clamp(32px, 4.2vw, 48px);
+  --fs-h2: clamp(24px, 2.6vw, 32px);
+  --fs-h3: clamp(20px, 2vw, 24px);
+  --fs-lead: clamp(16px, 1.7vw, 20px);
+  --fs-body: clamp(16px, 1.2vw, 18px);
+
+  /* Others */
+  --fs-caption: 13px;
+  --fs-over: 12px;
+}
