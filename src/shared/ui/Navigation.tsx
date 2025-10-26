@@ -30,19 +30,23 @@ const Navigation = () => {
   ];
 
   const isActive = (path: string) => pathname === path
+  const isHomePage = pathname === '/'
+  const isTransparent = !isScrolled && isHomePage
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      className={`fixed top-0 left-0 right-0 z-50 ${
         isScrolled
           ? 'bg-background/95 backdrop-blur-sm border-b border-border'
-          : 'bg-transparent border-b border-transparent'
+          : 'bg-transparent'
       }`}
     >
       <div className="container-custom px-6">
         <div className="flex items-center justify-between h-20">
           <Link href="/" className="flex items-center space-x-2">
-            <span className="text-xl font-light tracking-tight">
+            <span className={`text-xl tracking-tight ${
+              isTransparent ? 'text-white font-medium' : 'text-foreground font-light'
+            }`}>
               Anyeong Plant Dental Clinic
             </span>
           </Link>
@@ -55,7 +59,11 @@ const Navigation = () => {
                   variant="ghost"
                   className={
                     isActive(item.path)
-                      ? 'text-foreground font-medium'
+                      ? isTransparent
+                        ? 'text-white font-bold hover:text-white/80'
+                        : 'text-foreground font-medium'
+                      : isTransparent
+                      ? 'text-white/90 font-semibold hover:text-white'
                       : 'text-muted-foreground hover:text-foreground'
                   }
                 >
@@ -73,7 +81,9 @@ const Navigation = () => {
 
           {/* Mobile Menu Button */}
           <button
-            className="md:hidden p-2"
+            className={`md:hidden p-2 ${
+              isTransparent ? 'text-white' : 'text-foreground'
+            }`}
             onClick={() => setIsOpen(!isOpen)}
             aria-label="Toggle menu"
           >
@@ -83,7 +93,9 @@ const Navigation = () => {
 
         {/* Mobile Navigation */}
         {isOpen && (
-          <div className="md:hidden py-4 border-t border-border">
+          <div className={`md:hidden py-4 border-t ${
+            isTransparent ? 'border-white/20' : 'border-border'
+          }`}>
             <div className="flex flex-col space-y-2">
               {navItems.map((item) => (
                 <Link
@@ -95,7 +107,11 @@ const Navigation = () => {
                     variant="ghost"
                     className={`w-full justify-start ${
                       isActive(item.path)
-                        ? 'text-foreground font-medium'
+                        ? isTransparent
+                          ? 'text-white font-bold'
+                          : 'text-foreground font-medium'
+                        : isTransparent
+                        ? 'text-white/90 font-semibold'
                         : 'text-muted-foreground'
                     }`}
                   >
@@ -104,7 +120,9 @@ const Navigation = () => {
                 </Link>
               ))}
               <div className="flex items-center justify-between pt-2 pb-2">
-                <span className="text-sm text-muted-foreground pl-3">색상 테마</span>
+                <span className={`text-sm pl-3 ${
+                  isTransparent ? 'text-white/80' : 'text-muted-foreground'
+                }`}>색상 테마</span>
                 <ThemeSelector />
               </div>
               <Link href="/contact" onClick={() => setIsOpen(false)}>
