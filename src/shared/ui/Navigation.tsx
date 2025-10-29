@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
 import { usePathname } from 'next/navigation'
 import { Menu, X } from 'lucide-react'
 import { Button } from '@/shared/ui/shadcn/button'
@@ -44,11 +45,14 @@ const Navigation = () => {
       <div className="container-custom px-6">
         <div className="flex items-center justify-between h-20">
           <Link href="/" className="flex items-center space-x-2">
-            <span className={`text-xl tracking-tight ${
-              isTransparent ? 'text-white font-medium' : 'text-foreground font-light'
-            }`}>
-              Anyeong Plant Dental Clinic
-            </span>
+            <Image
+              src={isTransparent ? '/images/header_logo_white.png' : '/images/header_logo.png'}
+              alt="Anyeong Plant Dental Clinic"
+              width={200}
+              height={40}
+              className="h-10 w-auto"
+              priority
+            />
           </Link>
 
           {/* Desktop Navigation */}
