@@ -254,6 +254,42 @@ All colors MUST be HSL.
     @apply text-xs md:text-sm font-normal leading-relaxed;
   }
 
+  @keyframes hero-zoom {
+    0% {
+      transform: scale(1.2);
+      opacity: 0.8;
+    }
+    100% {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+
+  .animate-hero-zoom {
+    animation: hero-zoom 10s ease-out forwards;
+  }
+
+  @keyframes hero-text-fade-up {
+    0% {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .animate-hero-title {
+    animation: hero-text-fade-up 1.2s ease-out 0.4s forwards;
+    opacity: 0;
+  }
+
+  .animate-hero-subtitle {
+    animation: hero-text-fade-up 1.2s ease-out 1s forwards;
+    opacity: 0;
+  }
+
   @keyframes scroll-testimonials {
     0% {
       transform: translateX(0);

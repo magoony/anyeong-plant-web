@@ -163,8 +163,8 @@ export default function HomePage() {
               src={SPACE_SECTION.image}
               alt="Our space"
               width={800}
-              height={500}
-              className="rounded-lg soft-shadow w-full h-[500px] object-cover"
+              height={400}
+              className="rounded-lg soft-shadow w-full h-[400px] object-cover"
             />
           </div>
         </div>

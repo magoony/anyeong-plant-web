@@ -38,8 +38,8 @@ export const CORE_TREATMENTS: CoreTreatment[] = [
 
 // Hero Section
 export const HERO = {
-  image: "/images/reception-banner.png",
-  title: "당신의 새로운 미소가 여기서 시작됩니다",
+  image: "/images/banner01.png",
+  title: "정확한 진단과 섬세한 손길\n환자의 입장에서 진료합니다.",
   subtitle: "편안함과 정밀함이 만나는 곳, 안녕플란트치과",
   cta: {
     text: "예약하기",
@@ -86,11 +86,11 @@ export const PHILOSOPHY = {
 
 // Space Section
 export const SPACE_SECTION = {
-  image: "/images/treatment-detail.jpg",
-  title: "편안함을 위한 공간 설계",
+  image: "/images/font_desk.png",
+  title: "진료 이전에, 안녕을 느끼는 공간",
   paragraphs: [
-    "밝고 자연광이 가득한 공간, 우드톤과 식물이 어우러진 미니멀한 인테리어로 따뜻함과 안정감을 느낄 수 있습니다.",
-    "모든 디테일은 청결함, 따스함, 차분함을 중심으로 설계되었습니다. 회복과 편안함이 우선이 되는 공간입니다.",
+    "아치 구조와 간접조명이 만들어내는 부드러운 빛의 흐름 속에서 치료의 긴장을 내려놓고 차분한 마음으로 머무를 수 있습니다. 치과의 냉정함 대신 따뜻한 온기와 여유로운 공기가 감도는, 편안한 휴식 같은 시간이 흐릅니다.",
+    "안녕플란트치과의 모든 공간은 환자의 시선과 동선을 중심으로 설계되었습니다. 첫 인사에서 진료의 순간까지 이어지는 정제된 디자인 속에 따뜻한 배려와 진정성 있는 환대가 자연스럽게 스며 있습니다.",
   ],
   link: {
     text: "공간 둘러보기 →",
