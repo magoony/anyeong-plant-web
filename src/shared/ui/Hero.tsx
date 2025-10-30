@@ -1,5 +1,6 @@
 import { Button } from '@/shared/ui/shadcn/button'
 import Link from 'next/link'
+import { ChevronDown } from 'lucide-react'
 
 interface HeroProps {
   image: string
@@ -9,7 +10,6 @@ interface HeroProps {
     text: string
     link: string
   }
-  height?: string
 }
 
 const Hero = ({
@@ -17,11 +17,10 @@ const Hero = ({
   title,
   subtitle,
   cta,
-  height = 'h-[600px]',
 }: HeroProps) => {
   return (
     <section
-      className={`relative ${height} flex items-center justify-center overflow-hidden`}
+      className="relative h-screen 2xl:h-[85vh] 2xl:max-h-[900px] flex items-center justify-center overflow-hidden"
     >
       <div className="absolute inset-0">
         <img src={image} alt={title} className="w-full h-full object-cover animate-hero-zoom" />
@@ -36,16 +35,21 @@ const Hero = ({
       <div className="relative z-10 w-full h-full flex items-center justify-center">
         <div className="container-custom w-full h-full flex items-center">
           <div className="text-left -mt-[60px]">
-            <h1 className="text-3xl md:text-5xl font-medium tracking-normal mb-6 text-white whitespace-pre-line animate-hero-title" style={{ lineHeight: '1.3', textShadow: '0 2px 6px rgba(0, 0, 0, 0.25), 0 0 15px rgba(0, 0, 0, 0.2)' }}>
+            <h1 className="text-3xl md:text-[42px] 2xl:text-5xl font-medium tracking-normal mb-6 text-white whitespace-pre-line animate-hero-title" style={{ lineHeight: '1.3', textShadow: '0 2px 6px rgba(0, 0, 0, 0.25), 0 0 15px rgba(0, 0, 0, 0.2)' }}>
               {title}
             </h1>
             {subtitle && (
-              <p className="text-base md:text-lg text-white/95 max-w-2xl animate-hero-subtitle" style={{ textShadow: '0 2px 4px rgba(0, 0, 0, 0.25), 0 0 12px rgba(0, 0, 0, 0.15)' }}>
+              <p className="text-sm md:text-[17px] 2xl:text-lg text-white/95 max-w-2xl animate-hero-subtitle" style={{ textShadow: '0 2px 4px rgba(0, 0, 0, 0.25), 0 0 12px rgba(0, 0, 0, 0.15)' }}>
                 {subtitle}
               </p>
             )}
           </div>
         </div>
+      </div>
+
+      {/* Scroll Indicator */}
+      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 animate-bounce">
+        <ChevronDown className="w-8 h-8 text-white/80" />
       </div>
     </section>
   )

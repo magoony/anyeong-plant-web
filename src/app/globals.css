@@ -187,7 +187,6 @@ All colors MUST be HSL.
 
   html {
     font-family: var(--ff-sans);
-    scroll-behavior: smooth;
   }
 
   body {

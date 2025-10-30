@@ -2,6 +2,8 @@
 
 import { useEffect } from "react";
 import Section from "@/shared/ui/Section";
+import PageHeader from "@/shared/ui/PageHeader";
+import CTASection from "@/shared/ui/CTASection";
 import {
   Accordion,
   AccordionContent,
@@ -11,34 +13,36 @@ import {
 import Link from "next/link";
 import Image from "next/image";
 import { TREATMENTS } from "@/constants/treatments";
+import { TREATMENTS_CTA } from "@/constants/cta";
 
 export default function TreatmentsPage() {
 
   useEffect(() => {
     const hash = window.location.hash.slice(1);
-    if (hash) {
-      setTimeout(() => {
-        const element = document.getElementById(hash);
-        if (element) {
-          element.scrollIntoView({ behavior: "smooth", block: "start" });
-        }
-      }, 100);
-    }
+    if (!hash) return; // 해시가 없으면 아무것도 하지 않음
+
+    // 페이지가 완전히 렌더링된 후 스크롤
+    const timer = setTimeout(() => {
+      const element = document.getElementById(hash);
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+    }, 300);
+
+    return () => clearTimeout(timer);
   }, []);
 
   return (
     <main className="pt-20">
       <Section>
-        <div className="text-center mb-16">
-          <h1 className="ty-h1 mb-4">
-            Our Treatments
-          </h1>
-          <p className="ty-lead text-muted-foreground max-w-2xl mx-auto">
-            Comprehensive dental care focused on your comfort and long-term
-            health
-          </p>
-        </div>
+        <PageHeader
+          title="Our Treatments"
+          description="정밀함 속에 담긴 편안함"
+          content="기능의 회복을 넘어, 자연스러운 아름다움을 추구합니다. 불필요한 과정을 줄이고 세밀한 계획으로 오래도록 편안한 결과를 만들어갑니다."
+        />
+      </Section>
 
+      <Section background="card">
         <div className="space-y-16">
           {TREATMENTS.map((treatment, index) => (
             <div
@@ -109,23 +113,12 @@ export default function TreatmentsPage() {
         </div>
       </Section>
 
-      <Section background="card" className="text-center">
-        <div className="max-w-2xl mx-auto">
-          <h2 className="ty-h2 mb-4">
-            Not sure which treatment is right for you?
-          </h2>
-          <p className="ty-lead text-muted-foreground mb-8">
-            Schedule a consultation and we&apos;ll help you find the best path
-            forward
-          </p>
-          <Link
-            href="/contact"
-            className="inline-block bg-primary text-primary-foreground px-8 py-4 rounded-lg hover:warm-glow transition-all"
-          >
-            Book Consultation
-          </Link>
-        </div>
-      </Section>
+      <CTASection
+        title={TREATMENTS_CTA.title}
+        description={TREATMENTS_CTA.description}
+        buttonText={TREATMENTS_CTA.buttonText}
+        buttonLink={TREATMENTS_CTA.buttonLink}
+      />
     </main>
   );
 }

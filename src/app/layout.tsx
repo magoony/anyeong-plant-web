@@ -6,8 +6,8 @@ import Footer from '@/shared/ui/Footer'
 import FloatingActionBar from '@/shared/ui/FloatingActionBar'
 
 export const metadata: Metadata = {
-  title: 'Gentle Plant Dental',
-  description: 'Restorative dental care with gentle precision',
+  title: '안녕플란트치과 - Anyeong Plant Dental Clinic',
+  description: '당신의 새로운 미소가 시작되는 곳, 정밀하고 세심한 치료를 제공합니다',
 }
 
 export default function RootLayout({

@@ -1,26 +1,28 @@
 import Section from "@/shared/ui/Section";
+import PageHeader from "@/shared/ui/PageHeader";
 import { Card, CardContent } from "@/shared/ui/shadcn/card";
 import { MapPin, Phone, Clock, Mail } from "lucide-react";
 import { Metadata } from "next";
 import ContactForm from "./_components/ContactForm";
 
 export const metadata: Metadata = {
-  title: "Contact Us - Anyeong Plant Dental Clinic",
+  title: "진료 문의 - 안녕플란트치과",
   description:
-    "Get in touch with Anyeong Plant Dental Clinic. Schedule your visit or ask any questions. Located in Gangnam-gu, Seoul.",
+    "안녕플란트치과에 문의하세요. 진료 예약 및 상담을 도와드립니다. 서울특별시 강남구에 위치하고 있습니다.",
 };
 
 export default function ContactPage() {
   return (
     <main className="pt-20">
       <Section>
-        <div className="text-center mb-16">
-          <h1 className="text-4xl md:text-5xl font-light mb-4">Get in Touch</h1>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            We&apos;re here to answer your questions and schedule your visit
-          </p>
-        </div>
+        <PageHeader
+          title="진료 문의"
+          description="당신의 안녕이 시작되는 순간"
+          content="상담부터 치료까지, 언제나 열린 마음으로 함께합니다. 궁금한 점이 있다면 편하게 문의해주세요. 당신의 이야기를 듣는 것에서 우리의 진료는 시작됩니다."
+        />
+      </Section>
 
+      <Section background="card">
         <div className="grid md:grid-cols-2 gap-12 max-w-6xl mx-auto">
           <div>
             <ContactForm />
@@ -34,11 +36,9 @@ export default function ContactPage() {
                     <MapPin className="w-6 h-6 text-accent-foreground" />
                   </div>
                   <div>
-                    <h3 className="font-medium mb-2">Location</h3>
+                    <h3 className="font-medium mb-2">위치</h3>
                     <p className="text-muted-foreground text-sm">
-                      123 Gangnam-daero, Gangnam-gu
-                      <br />
-                      Seoul, South Korea
+                      서울특별시 강남구 강남대로 123
                     </p>
                   </div>
                 </div>
@@ -52,9 +52,9 @@ export default function ContactPage() {
                     <Phone className="w-6 h-6 text-accent-foreground" />
                   </div>
                   <div>
-                    <h3 className="font-medium mb-2">Phone</h3>
+                    <h3 className="font-medium mb-2">전화</h3>
                     <p className="text-muted-foreground text-sm">
-                      +82 2-1234-5678
+                      02-1234-5678
                     </p>
                   </div>
                 </div>
@@ -68,7 +68,7 @@ export default function ContactPage() {
                     <Mail className="w-6 h-6 text-accent-foreground" />
                   </div>
                   <div>
-                    <h3 className="font-medium mb-2">Email</h3>
+                    <h3 className="font-medium mb-2">이메일</h3>
                     <p className="text-muted-foreground text-sm">
                       info@anyeongplant.com
                     </p>
@@ -84,11 +84,11 @@ export default function ContactPage() {
                     <Clock className="w-6 h-6 text-accent-foreground" />
                   </div>
                   <div>
-                    <h3 className="font-medium mb-2">Opening Hours</h3>
+                    <h3 className="font-medium mb-2">진료 시간</h3>
                     <div className="text-muted-foreground text-sm space-y-1">
-                      <p>Monday - Friday: 9:00 AM - 6:00 PM</p>
-                      <p>Saturday: 9:00 AM - 2:00 PM</p>
-                      <p>Sunday: Closed</p>
+                      <p>월 - 금: 오전 9시 - 오후 6시</p>
+                      <p>토요일: 오전 9시 - 오후 2시</p>
+                      <p>일요일: 휴진</p>
                     </div>
                   </div>
                 </div>

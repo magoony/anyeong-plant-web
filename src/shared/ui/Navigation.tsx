@@ -1,17 +1,17 @@
-'use client'
+"use client";
 
-import { useState, useEffect } from 'react'
-import Link from 'next/link'
-import Image from 'next/image'
-import { usePathname } from 'next/navigation'
-import { Menu, X } from 'lucide-react'
-import { Button } from '@/shared/ui/shadcn/button'
-import ThemeSelector from '@/shared/ui/ThemeSelector'
+import { useState, useEffect } from "react";
+import Link from "next/link";
+import Image from "next/image";
+import { usePathname } from "next/navigation";
+import { Menu, X } from "lucide-react";
+import { Button } from "@/shared/ui/shadcn/button";
+import ThemeSelector from "@/shared/ui/ThemeSelector";
 
 const Navigation = () => {
-  const [isOpen, setIsOpen] = useState(false)
-  const [isScrolled, setIsScrolled] = useState(false)
-  const pathname = usePathname()
+  const [isOpen, setIsOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+  const pathname = usePathname();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -30,26 +30,30 @@ const Navigation = () => {
     { name: "Contact", path: "/contact" },
   ];
 
-  const isActive = (path: string) => pathname === path
-  const isHomePage = pathname === '/'
-  const isTransparent = !isScrolled && isHomePage
+  const isActive = (path: string) => pathname === path;
+  const isHomePage = pathname === "/";
+  const isTransparent = !isScrolled && isHomePage;
 
   return (
     <nav
       className={`fixed top-0 left-0 right-0 z-50 ${
         isScrolled
-          ? 'bg-background/95 backdrop-blur-sm border-b border-border'
-          : 'bg-transparent'
+          ? "bg-background/95 backdrop-blur-sm border-b border-border"
+          : "bg-transparent"
       }`}
     >
-      <div className="container-custom px-6">
+      <div className="container-custom">
         <div className="flex items-center justify-between h-20">
           <Link href="/" className="flex items-center space-x-2">
             <Image
-              src={isTransparent ? '/images/header_logo_white.png' : '/images/header_logo.png'}
+              src={
+                isTransparent
+                  ? "/images/header_logo_white.png"
+                  : "/images/header_logo.png"
+              }
               alt="Anyeong Plant Dental Clinic"
-              width={200}
-              height={40}
+              width={1904}
+              height={382}
               className="h-10 w-auto"
               priority
             />
@@ -64,11 +68,11 @@ const Navigation = () => {
                   className={
                     isActive(item.path)
                       ? isTransparent
-                        ? 'text-white font-bold hover:text-white/80'
-                        : 'text-foreground font-medium'
+                        ? "text-white font-bold hover:text-white/80"
+                        : "text-foreground font-medium"
                       : isTransparent
-                      ? 'text-white/90 font-semibold hover:text-white'
-                      : 'text-muted-foreground hover:text-foreground'
+                      ? "text-white/90 font-semibold hover:text-white"
+                      : "text-muted-foreground hover:text-foreground"
                   }
                 >
                   {item.name}
@@ -86,7 +90,7 @@ const Navigation = () => {
           {/* Mobile Menu Button */}
           <button
             className={`md:hidden p-2 ${
-              isTransparent ? 'text-white' : 'text-foreground'
+              isTransparent ? "text-white" : "text-foreground"
             }`}
             onClick={() => setIsOpen(!isOpen)}
             aria-label="Toggle menu"
@@ -97,9 +101,11 @@ const Navigation = () => {
 
         {/* Mobile Navigation */}
         {isOpen && (
-          <div className={`md:hidden py-4 border-t ${
-            isTransparent ? 'border-white/20' : 'border-border'
-          }`}>
+          <div
+            className={`md:hidden py-4 border-t ${
+              isTransparent ? "border-white/20" : "border-border"
+            }`}
+          >
             <div className="flex flex-col space-y-2">
               {navItems.map((item) => (
                 <Link
@@ -112,11 +118,11 @@ const Navigation = () => {
                     className={`w-full justify-start ${
                       isActive(item.path)
                         ? isTransparent
-                          ? 'text-white font-bold'
-                          : 'text-foreground font-medium'
+                          ? "text-white font-bold"
+                          : "text-foreground font-medium"
                         : isTransparent
-                        ? 'text-white/90 font-semibold'
-                        : 'text-muted-foreground'
+                        ? "text-white/90 font-semibold"
+                        : "text-muted-foreground"
                     }`}
                   >
                     {item.name}
@@ -124,9 +130,13 @@ const Navigation = () => {
                 </Link>
               ))}
               <div className="flex items-center justify-between pt-2 pb-2">
-                <span className={`text-sm pl-3 ${
-                  isTransparent ? 'text-white/80' : 'text-muted-foreground'
-                }`}>색상 테마</span>
+                <span
+                  className={`text-sm pl-3 ${
+                    isTransparent ? "text-white/80" : "text-muted-foreground"
+                  }`}
+                >
+                  색상 테마
+                </span>
                 <ThemeSelector />
               </div>
               <Link href="/contact" onClick={() => setIsOpen(false)}>
@@ -139,7 +149,7 @@ const Navigation = () => {
         )}
       </div>
     </nav>
-  )
-}
+  );
+};
 
 export default Navigation;

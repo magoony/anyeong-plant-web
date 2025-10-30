@@ -1,106 +1,95 @@
+"use client";
+
+import React from "react";
 import Section from "@/shared/ui/Section";
+import PageHeader from "@/shared/ui/PageHeader";
+import CTASection from "@/shared/ui/CTASection";
 import Map from "@/shared/ui/Map";
 import Link from "next/link";
-import { Metadata } from "next";
-import { Car } from "lucide-react";
+import { Car, X, ChevronLeft, ChevronRight } from "lucide-react";
 import { FACILITIES, PARKING_INFO } from "@/constants/facilities";
-
-export const metadata: Metadata = {
-  title: "Our Space - Anyeong Plant Dental Clinic",
-  description:
-    "A thoughtfully designed clinic environment where comfort and care come together. Experience natural light, clean minimal design, and biophilic elements.",
-};
+import { SPACE_CTA } from "@/constants/cta";
 
 export default function SpacePage() {
+  const [selectedImage, setSelectedImage] = React.useState<number | null>(null);
 
   const images = [
     {
-      src: "/images/hero-clinic.jpg",
-      title: "Reception & Waiting Area",
-      description: "A warm welcome with natural light and comfortable seating",
+      src: "/images/space/front-desk.png",
+      title: "프론트 데스크",
+      description: "따뜻한 조명과 정돈된 공간에서 편안한 첫 인사를 나눕니다",
     },
     {
-      src: "/images/space-interior.jpg",
-      title: "Treatment Room",
-      description: "Clean, modern equipment in a calming environment",
+      src: "/images/space/private-treatment-room.png",
+      title: "개인 진료실",
+      description: "프라이버시가 보장되는 독립된 공간에서 집중된 진료가 이루어집니다",
     },
     {
-      src: "/images/treatment-detail.jpg",
-      title: "Consultation Area",
-      description: "Private spaces for open, comfortable conversations",
+      src: "/images/space/clinic-hallway.png",
+      title: "복도",
+      description: "깔끔한 동선과 차분한 분위기 속에서 편안하게 이동합니다",
+    },
+    {
+      src: "/images/space/waiting-lounge.png",
+      title: "대기 라운지",
+      description: "자연스러운 빛과 여유로운 공기가 흐르는 휴식 공간",
+    },
+    {
+      src: "/images/space/brushing-room.png",
+      title: "구강 케어룸",
+      description: "진료 전후 편안하게 구강 케어를 할 수 있는 공간",
     },
   ];
 
   return (
     <main className="pt-20">
       <Section>
-        <div className="text-center mb-16">
-          <h1 className="ty-h1 mb-4">Our Space</h1>
-          <p className="ty-lead text-muted-foreground max-w-2xl mx-auto">
-            A thoughtfully designed environment where comfort and care come
-            together
-          </p>
-        </div>
-
-        <div className="max-w-4xl mx-auto mb-16">
-          <p className="ty-body text-muted-foreground text-center mb-8">
-            Every detail of our clinic has been carefully considered to create a
-            space that feels more like a wellness studio than a traditional
-            dental office. From the warm ivory walls to the natural wood accents
-            and abundant plants, we&apos;ve designed an environment that helps you
-            feel at ease from the moment you arrive.
-          </p>
-        </div>
+        <PageHeader
+          title="Our Space"
+          description="편안함과 배려가 머무는 공간"
+          content="환자의 시선과 동선을 따라 설계된 공간 속에서 따뜻한 조명과 자연스러운 질감이 어우러집니다. 치료의 긴장을 내려놓고, 차분한 마음으로 머무를 수 있는 안녕플란트치과만의 분위기를 느껴보세요."
+        />
       </Section>
 
       <Section background="card">
         <div className="grid md:grid-cols-2 gap-8 mb-16">
           <div>
-            <h2 className="ty-h3 mb-4">
-              Natural Light & Open Space
-            </h2>
+            <h2 className="ty-h3 mb-4">Privacy & Comfort</h2>
             <p className="ty-body text-muted-foreground">
-              Large windows throughout the clinic bring in plenty of natural
-              sunlight, creating a bright and uplifting atmosphere. Our open
-              layout ensures you never feel confined or claustrophobic.
+              각 진료실은 독립적으로 설계되어 주변의 시선과 소음으로부터 완전히 분리됩니다. 조용한 공간에서 오롯이 나에게 집중할 수 있습니다.
+            </p>
+          </div>
+          <div>
+            <h2 className="ty-h3 mb-4">Natural Light & Open Space</h2>
+            <p className="ty-body text-muted-foreground">
+              넓은 창으로 들어오는 자연빛이 공간을 밝히며 답답함 없는 개방감을 선사합니다. 부드러운 빛의 흐름 속에서 마음까지 환하게 밝혀집니다.
+            </p>
+          </div>
+          <div>
+            <h2 className="ty-h3 mb-4">Warm Lighting & Balance</h2>
+            <p className="ty-body text-muted-foreground">
+              차분한 빛의 온도와 정돈된 선의 흐름이 어우러져 긴장을 완화하고 안정감을 더합니다. 빛이 공간을 감싸며 진료의 순간까지 부드럽게 이어집니다.
             </p>
           </div>
           <div>
             <h2 className="ty-h3 mb-4">Clean, Minimal Design</h2>
             <p className="ty-body text-muted-foreground">
-              Inspired by Scandinavian and Japanese aesthetics, our design
-              philosophy emphasizes simplicity and functionality. Clean lines,
-              neutral tones, and natural materials create a serene environment.
-            </p>
-          </div>
-          <div>
-            <h2 className="ty-h3 mb-4">Biophilic Elements</h2>
-            <p className="ty-body text-muted-foreground">
-              Plants are integrated throughout the space, not just for
-              aesthetics but to improve air quality and create a connection to
-              nature that promotes calm and well-being.
-            </p>
-          </div>
-          <div>
-            <h2 className="ty-h3 mb-4">Privacy & Comfort</h2>
-            <p className="ty-body text-muted-foreground">
-              Each treatment room offers complete privacy with soundproofing and
-              thoughtful layout. Comfortable seating and ambient music help you
-              relax during your visit.
+              불필요한 장식을 덜어내고, 담백한 색감과 질감으로 편안함을 완성했습니다. 깔끔함 속에서 따뜻함이 느껴집니다.
             </p>
           </div>
         </div>
       </Section>
 
       <Section>
-        <h2 className="ty-h2 mb-12 text-center">Take a Tour</h2>
-        <div className="grid md:grid-cols-3 gap-8">
-          {images.map((image) => (
-            <div key={image.title} className="space-y-4">
+        <h2 className="ty-h2 mb-12 text-center">공간 둘러보기</h2>
+        <div className="columns-1 md:columns-2 lg:columns-3 gap-8 space-y-8">
+          {images.map((image, index) => (
+            <div key={image.title} className="break-inside-avoid space-y-4">
               <img
                 src={image.src}
                 alt={image.title}
-                className="w-full h-80 object-cover rounded-lg soft-shadow"
+                className="w-full rounded-lg soft-shadow cursor-pointer hover:opacity-90 transition-opacity"
+                onClick={() => setSelectedImage(index)}
               />
               <div>
                 <h3 className="ty-h3 mb-2">{image.title}</h3>
@@ -111,6 +100,55 @@ export default function SpacePage() {
             </div>
           ))}
         </div>
+
+        {/* Image Viewer Modal */}
+        {selectedImage !== null && (
+          <div
+            className="fixed inset-0 bg-black/95 z-50 flex items-center justify-center p-4"
+            onClick={() => setSelectedImage(null)}
+          >
+            <button
+              className="absolute top-4 right-4 text-white/80 hover:text-white p-2"
+              onClick={() => setSelectedImage(null)}
+            >
+              <X size={32} />
+            </button>
+
+            <button
+              className="absolute left-4 text-white/80 hover:text-white p-2 disabled:opacity-30"
+              onClick={(e) => {
+                e.stopPropagation();
+                setSelectedImage((prev) => (prev! > 0 ? prev! - 1 : images.length - 1));
+              }}
+              disabled={selectedImage === 0}
+            >
+              <ChevronLeft size={48} />
+            </button>
+
+            <button
+              className="absolute right-4 text-white/80 hover:text-white p-2 disabled:opacity-30"
+              onClick={(e) => {
+                e.stopPropagation();
+                setSelectedImage((prev) => (prev! < images.length - 1 ? prev! + 1 : 0));
+              }}
+              disabled={selectedImage === images.length - 1}
+            >
+              <ChevronRight size={48} />
+            </button>
+
+            <div className="max-w-7xl max-h-[90vh] flex flex-col items-center" onClick={(e) => e.stopPropagation()}>
+              <img
+                src={images[selectedImage].src}
+                alt={images[selectedImage].title}
+                className="max-w-full max-h-[80vh] object-contain rounded-lg"
+              />
+              <div className="mt-6 text-center text-white">
+                <h3 className="text-2xl font-medium mb-2">{images[selectedImage].title}</h3>
+                <p className="text-white/80">{images[selectedImage].description}</p>
+              </div>
+            </div>
+          </div>
+        )}
       </Section>
 
       <Section background="card">
@@ -157,21 +195,13 @@ export default function SpacePage() {
         </div>
       </Section>
 
-      <Section className="text-center">
-        <div className="max-w-2xl mx-auto">
-          <h2 className="ty-h2 mb-4">Experience the difference</h2>
-          <p className="ty-lead text-muted-foreground mb-8">
-            We invite you to visit our clinic and see for yourself how our space
-            can transform your dental care experience
-          </p>
-          <Link
-            href="/contact"
-            className="inline-block bg-primary text-primary-foreground px-8 py-4 rounded-lg hover:warm-glow transition-all"
-          >
-            Schedule a Visit
-          </Link>
-        </div>
-      </Section>
+      <CTASection
+        title={SPACE_CTA.title}
+        description={SPACE_CTA.description}
+        buttonText={SPACE_CTA.buttonText}
+        buttonLink={SPACE_CTA.buttonLink}
+        background="default"
+      />
     </main>
   );
 }

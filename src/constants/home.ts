@@ -103,14 +103,3 @@ export const TESTIMONIALS_SECTION = {
   title: "환자 후기",
   description: "안녕플란트치과를 직접 경험한 환자분들의 진솔한 이야기",
 };
-
-// CTA Section
-export const CTA_SECTION = {
-  title: "새로운 미소를 시작할 준비가 되셨나요?",
-  description:
-    "지금 상담을 예약하시고, 오직 당신을 위한 세심한 진료를 경험해보세요.",
-  button: {
-    text: "상담 예약하기",
-    link: "/contact",
-  },
-};

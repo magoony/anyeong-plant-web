@@ -1,5 +1,6 @@
 import Hero from "@/shared/ui/Hero";
 import Section from "@/shared/ui/Section";
+import CTASection from "@/shared/ui/CTASection";
 import TreatmentCard from "@/shared/ui/TreatmentCard";
 import DoctorCard from "@/shared/ui/DoctorCard";
 import TestimonialCarousel from "@/shared/ui/TestimonialCarousel";
@@ -16,10 +17,10 @@ import {
   PHILOSOPHY,
   SPACE_SECTION,
   TESTIMONIALS_SECTION,
-  CTA_SECTION,
 } from "@/constants/home";
 import { DOCTORS } from "@/constants/doctors";
 import { TESTIMONIALS } from "@/constants/testimonials";
+import { HOME_CTA } from "@/constants/cta";
 
 export default function HomePage() {
 
@@ -183,22 +184,12 @@ export default function HomePage() {
         <TestimonialCarousel testimonials={TESTIMONIALS} />
       </Section>
 
-      <Section background="card" className="text-center">
-        <div className="max-w-3xl mx-auto">
-          <h2 className="ty-h2 mb-6">
-            {CTA_SECTION.title}
-          </h2>
-          <p className="ty-lead text-muted-foreground mb-8">
-            {CTA_SECTION.description}
-          </p>
-          <Link
-            href={CTA_SECTION.button.link}
-            className="inline-block bg-primary text-primary-foreground px-8 py-4 rounded-lg hover:warm-glow transition-all"
-          >
-            {CTA_SECTION.button.text}
-          </Link>
-        </div>
-      </Section>
+      <CTASection
+        title={HOME_CTA.title}
+        description={HOME_CTA.description}
+        buttonText={HOME_CTA.buttonText}
+        buttonLink={HOME_CTA.buttonLink}
+      />
     </main>
   );
 }
