@@ -293,4 +293,4 @@ export const themes: Record<string, Theme> = {
 };
 
 export const themeList = Object.values(themes);
-export const defaultTheme = themes.default;
+export const defaultTheme = themes.softMint;

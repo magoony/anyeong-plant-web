@@ -11,26 +11,26 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    /* Anyeong Plant Dental - Warm, natural palette */
-    --background: 42 33% 97%; /* warm ivory #FAF7F2 */
-    --foreground: 25 14% 40%; /* gentle brown #6E6258 */
+    /* Anyeong Plant Dental - Soft Mint Natural */
+    --background: 42 33% 97%; /* #FAF7F2 */
+    --foreground: 25 14% 40%; /* #6E6258 */
 
-    --card: 42 33% 98%;
+    --card: 42 33% 98%; /* #FCFAF7 */
     --card-foreground: 25 14% 40%;
 
     --popover: 42 33% 99%;
     --popover-foreground: 25 14% 40%;
 
-    --primary: 25 14% 40%; /* gentle brown */
+    --primary: 160 25% 55%; /* soft sage mint #8AB9A8 */
     --primary-foreground: 42 33% 97%;
 
     --secondary: 38 25% 75%; /* pale gold #CBBBA0 */
-    --secondary-foreground: 25 14% 25%;
+    --secondary-foreground: 25 14% 30%;
 
     --muted: 42 20% 94%;
     --muted-foreground: 25 14% 50%;
 
-    --accent: 150 25% 85%; /* soft mint #CFE6DA */
+    --accent: 150 20% 90%; /* very light mint #DEE9E2 */
     --accent-foreground: 25 14% 30%;
 
     --destructive: 0 70% 60%;
@@ -38,7 +38,7 @@ All colors MUST be HSL.
 
     --border: 42 20% 88%;
     --input: 42 20% 88%;
-    --ring: 38 25% 75%;
+    --ring: 160 25% 55%;
 
     --radius: 0.75rem;
 

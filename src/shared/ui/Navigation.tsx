@@ -6,7 +6,6 @@ import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/shared/ui/shadcn/button";
-import ThemeSelector from "@/shared/ui/ThemeSelector";
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -79,7 +78,7 @@ const Navigation = () => {
                 </Button>
               </Link>
             ))}
-            <ThemeSelector />
+            {/* <ThemeSelector /> */}
             <Link href="/contact">
               <Button variant="default" className="ml-4">
                 Book Appointment
@@ -129,7 +128,7 @@ const Navigation = () => {
                   </Button>
                 </Link>
               ))}
-              <div className="flex items-center justify-between pt-2 pb-2">
+              {/* <div className="flex items-center justify-between pt-2 pb-2">
                 <span
                   className={`text-sm pl-3 ${
                     isTransparent ? "text-white/80" : "text-muted-foreground"
@@ -138,7 +137,7 @@ const Navigation = () => {
                   색상 테마
                 </span>
                 <ThemeSelector />
-              </div>
+              </div> */}
               <Link href="/contact" onClick={() => setIsOpen(false)}>
                 <Button variant="default" className="w-full mt-2">
                   Book Appointment
