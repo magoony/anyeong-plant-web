@@ -72,16 +72,12 @@ export const TREATMENTS_SECTION = {
 
 // Philosophy Section
 export const PHILOSOPHY = {
-  image: "/images/doctor-portrait.jpg",
+  image: "/images/philosophy_section.png",
   title: "우리는 치아가 아닌 사람을 봅니다",
   paragraphs: [
     "안녕플란트치과의 진료 철학은 편안함, 정직함, 그리고 장기적인 케어에 있습니다. 치료 그 자체보다 환자 본연의 자연스러운 미소를 회복시키는 데 초점을 맞춥니다.",
-    "병원이라기보다 ‘웰니스 스튜디오’에 가까운 공간에서, 따뜻한 환대와 임상적 정밀함이 조화를 이루는 경험을 제공합니다.",
+    "병원이라기보다 '웰니스 스튜디오'에 가까운 공간에서, 따뜻한 환대와 임상적 정밀함이 조화를 이루는 경험을 제공합니다.",
   ],
-  link: {
-    text: "김유준 대표원장 소개 →",
-    href: "/doctor",
-  },
 };
 
 // Space Section

@@ -4,8 +4,6 @@ import CTASection from "@/shared/ui/CTASection";
 import TreatmentCard from "@/shared/ui/TreatmentCard";
 import DoctorCard from "@/shared/ui/DoctorCard";
 import TestimonialCarousel from "@/shared/ui/TestimonialCarousel";
-import { Button } from "@/shared/ui/shadcn/button";
-import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 import {
@@ -31,7 +29,6 @@ export default function HomePage() {
         title={HERO.title}
         subtitle={HERO.subtitle}
         cta={HERO.cta}
-        height="h-[80vh]"
       />
 
       <Section>
@@ -128,12 +125,6 @@ export default function HomePage() {
                 {paragraph}
               </p>
             ))}
-            <Link
-              href={PHILOSOPHY.link.href}
-              className="text-primary hover:underline inline-flex items-center"
-            >
-              {PHILOSOPHY.link.text}
-            </Link>
           </div>
         </div>
       </Section>
