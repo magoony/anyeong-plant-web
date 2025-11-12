@@ -1,6 +1,7 @@
 import { Button } from "@/shared/ui/shadcn/button";
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 
 interface DoctorCardProps {
   id: string;
@@ -13,11 +14,13 @@ interface DoctorCardProps {
 const DoctorCard = ({ id, image, name, title, quote }: DoctorCardProps) => {
   return (
     <div className="group">
-      <div className="mb-6 overflow-hidden rounded-lg">
-        <img
+      <div className="mb-6 overflow-hidden rounded-lg relative h-96">
+        <Image
           src={image}
           alt={name}
-          className="w-full h-96 object-cover transition-transform duration-500 group-hover:scale-105"
+          fill
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+          className="object-cover transition-transform duration-500 group-hover:scale-105"
         />
       </div>
       <div className="space-y-3">

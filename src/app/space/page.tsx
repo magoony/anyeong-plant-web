@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import Image from "next/image";
 import Section from "@/shared/ui/Section";
 import PageHeader from "@/shared/ui/PageHeader";
 import CTASection from "@/shared/ui/CTASection";
@@ -9,33 +10,34 @@ import Link from "next/link";
 import { Car, X, ChevronLeft, ChevronRight } from "lucide-react";
 import { FACILITIES, PARKING_INFO } from "@/constants/facilities";
 import { SPACE_CTA } from "@/constants/cta";
+import { img } from "@/lib/cloudflare-images";
 
 export default function SpacePage() {
   const [selectedImage, setSelectedImage] = React.useState<number | null>(null);
 
   const images = [
     {
-      src: "/images/space/front-desk.png",
+      src: img("/images/space/front-desk.png"),
       title: "프론트 데스크",
       description: "따뜻한 조명과 정돈된 공간에서 편안한 첫 인사를 나눕니다",
     },
     {
-      src: "/images/space/private-treatment-room.png",
+      src: img("/images/space/private-treatment-room.png"),
       title: "개인 진료실",
       description: "프라이버시가 보장되는 독립된 공간에서 집중된 진료가 이루어집니다",
     },
     {
-      src: "/images/space/clinic-hallway.png",
+      src: img("/images/space/clinic-hallway.png"),
       title: "복도",
       description: "깔끔한 동선과 차분한 분위기 속에서 편안하게 이동합니다",
     },
     {
-      src: "/images/space/waiting-lounge.png",
+      src: img("/images/space/waiting-lounge.png"),
       title: "대기 라운지",
       description: "자연스러운 빛과 여유로운 공기가 흐르는 휴식 공간",
     },
     {
-      src: "/images/space/brushing-room.png",
+      src: img("/images/space/brushing-room.png"),
       title: "구강 케어룸",
       description: "진료 전후 편안하게 구강 케어를 할 수 있는 공간",
     },
@@ -85,12 +87,15 @@ export default function SpacePage() {
         <div className="columns-1 md:columns-2 lg:columns-3 gap-8 space-y-8">
           {images.map((image, index) => (
             <div key={image.title} className="break-inside-avoid space-y-4">
-              <img
-                src={image.src}
-                alt={image.title}
-                className="w-full rounded-lg soft-shadow cursor-pointer hover:opacity-90 transition-opacity"
-                onClick={() => setSelectedImage(index)}
-              />
+              <div className="relative w-full aspect-[4/3] rounded-lg soft-shadow cursor-pointer hover:opacity-90 transition-opacity overflow-hidden" onClick={() => setSelectedImage(index)}>
+                <Image
+                  src={image.src}
+                  alt={image.title}
+                  fill
+                  sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                  className="object-cover"
+                />
+              </div>
               <div>
                 <h3 className="ty-h3 mb-2">{image.title}</h3>
                 <p className="ty-caption text-muted-foreground">
@@ -137,11 +142,16 @@ export default function SpacePage() {
             </button>
 
             <div className="max-w-7xl max-h-[90vh] flex flex-col items-center" onClick={(e) => e.stopPropagation()}>
-              <img
-                src={images[selectedImage].src}
-                alt={images[selectedImage].title}
-                className="max-w-full max-h-[80vh] object-contain rounded-lg"
-              />
+              <div className="relative w-full max-h-[80vh]">
+                <Image
+                  src={images[selectedImage].src}
+                  alt={images[selectedImage].title}
+                  width={1920}
+                  height={1440}
+                  quality={95}
+                  className="max-w-full max-h-[80vh] object-contain rounded-lg"
+                />
+              </div>
               <div className="mt-6 text-center text-white">
                 <h3 className="text-2xl font-medium mb-2">{images[selectedImage].title}</h3>
                 <p className="text-white/80">{images[selectedImage].description}</p>

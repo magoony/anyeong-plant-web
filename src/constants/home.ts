@@ -1,3 +1,5 @@
+import { img } from '@/lib/cloudflare-images';
+
 export interface CoreTreatment {
   image: string;
   title: string;
@@ -7,28 +9,28 @@ export interface CoreTreatment {
 
 export const CORE_TREATMENTS: CoreTreatment[] = [
   {
-    image: "/images/treatment-implant.jpg",
+    image: img("/images/treatment-implant.jpg"),
     title: "임플란트",
     description:
       "자연스러운 미소를 되찾아주는, 안정적이고 오래 지속되는 임플란트 치료.",
     link: "/treatments#implant",
   },
   {
-    image: "/images/treatment-aesthetic.jpg",
+    image: img("/images/treatment-aesthetic.jpg"),
     title: "심미 보철",
     description:
       "개개인의 조화와 아름다움을 섬세하게 복원하는 맞춤형 심미 치료.",
     link: "/treatments#aesthetic",
   },
   {
-    image: "/images/treatment-gum.jpg",
+    image: img("/images/treatment-gum.jpg"),
     title: "잇몸 재생",
     description:
       "건강한 잇몸을 회복시켜 구강의 균형과 기초를 튼튼히 하는 재생 치료.",
     link: "/treatments#gum",
   },
   {
-    image: "/images/treatment-general.jpg",
+    image: img("/images/treatment-general.jpg"),
     title: "일반 진료",
     description:
       "자연 치아를 보호하고 일상의 편안함을 지켜주는 예방 중심의 진료.",
@@ -38,7 +40,7 @@ export const CORE_TREATMENTS: CoreTreatment[] = [
 
 // Hero Section
 export const HERO = {
-  image: "/images/banner01.png",
+  image: img("/images/banner01.png"),
   title: "정확한 진단과 섬세한 손길\n환자의 입장에서 진료합니다.",
   subtitle: "편안함과 정밀함이 만나는 곳, 안녕플란트치과",
   cta: {
@@ -49,7 +51,7 @@ export const HERO = {
 
 // About Section
 export const ABOUT = {
-  image: "/images/team-care.png",
+  image: img("/images/team-care.png"),
   title: "정직함과 정밀함으로\n완성하는 진심의 진료",
   paragraphs: [
     "안녕플란트치과는 환자 한 분 한 분의 이야기에 귀 기울이며, 치료가 아닌 사람의 마음을 다루는 진료를 지향합니다. 빠르게 고치는 것보다 오래도록 편안한 상태를 유지하는 것, 그것이 진정한 치료의 본질이라 믿습니다.",
@@ -72,7 +74,7 @@ export const TREATMENTS_SECTION = {
 
 // Philosophy Section
 export const PHILOSOPHY = {
-  image: "/images/philosophy_section.png",
+  image: img("/images/philosophy_section.png"),
   title: "우리는 치아가 아닌 사람을 봅니다",
   paragraphs: [
     "안녕플란트치과의 진료 철학은 편안함, 정직함, 그리고 장기적인 케어에 있습니다. 치료 그 자체보다 환자 본연의 자연스러운 미소를 회복시키는 데 초점을 맞춥니다.",
@@ -82,7 +84,7 @@ export const PHILOSOPHY = {
 
 // Space Section
 export const SPACE_SECTION = {
-  image: "/images/font_desk.png",
+  image: img("/images/font_desk.png"),
   title: "진료 이전에, 안녕을 느끼는 공간",
   paragraphs: [
     "아치 구조와 간접조명이 만들어내는 부드러운 빛의 흐름 속에서 치료의 긴장을 내려놓고 차분한 마음으로 머무를 수 있습니다. 치과의 냉정함 대신 따뜻한 온기와 여유로운 공기가 감도는, 편안한 휴식 같은 시간이 흐릅니다.",

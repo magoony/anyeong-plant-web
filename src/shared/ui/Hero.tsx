@@ -1,5 +1,6 @@
 import { Button } from '@/shared/ui/shadcn/button'
 import Link from 'next/link'
+import Image from 'next/image'
 import { ChevronDown } from 'lucide-react'
 
 interface HeroProps {
@@ -23,7 +24,15 @@ const Hero = ({
       className="relative h-screen 2xl:h-[85vh] 2xl:max-h-[900px] flex items-center justify-center overflow-hidden"
     >
       <div className="absolute inset-0">
-        <img src={image} alt={title} className="w-full h-full object-cover animate-hero-zoom" />
+        <Image
+          src={image}
+          alt={title}
+          fill
+          priority
+          quality={90}
+          sizes="100vw"
+          className="object-cover animate-hero-zoom"
+        />
         {/* 기존 전체 그라디언트 */}
         <div className="absolute inset-0 bg-gradient-to-b from-foreground/40 via-foreground/30 to-foreground/50" />
         {/* 상단 추가 그라디언트: 헤더 텍스트 가독성 확보 */}

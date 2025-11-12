@@ -1,5 +1,6 @@
 import { ArrowRight } from 'lucide-react'
 import Link from 'next/link'
+import Image from 'next/image'
 
 interface TreatmentCardProps {
   image: string
@@ -17,11 +18,13 @@ const TreatmentCard = ({
   return (
     <div className="group">
       <Link href={link} className="block">
-        <div className="mb-6 overflow-hidden rounded-lg bg-card">
-          <img
+        <div className="mb-6 overflow-hidden rounded-lg bg-card relative h-80">
+          <Image
             src={image}
             alt={title}
-            className="w-full h-80 object-cover transition-all duration-500 group-hover:scale-105 grayscale group-hover:grayscale-0"
+            fill
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+            className="object-cover transition-all duration-500 group-hover:scale-105 grayscale group-hover:grayscale-0"
           />
         </div>
         <div className="space-y-3">

@@ -1,3 +1,5 @@
+import { img } from '@/lib/cloudflare-images';
+
 export interface Doctor {
   id: string;
   image: string;
@@ -14,7 +16,7 @@ export interface Doctor {
 export const DOCTORS: Doctor[] = [
   {
     id: "sangwoo-ahn",
-    image: "/images/doctor1.png",
+    image: img("/images/doctor1.png"),
     name: "안상우 대표원장",
     title: "임플란트 · 보철 전문의",
     quote: "환자에게 꼭 필요한 치료만, 정직하고 정확하게",
@@ -38,7 +40,7 @@ export const DOCTORS: Doctor[] = [
   },
   {
     id: "yongtae-park",
-    image: "/images/doctor2.png",
+    image: img("/images/doctor2.png"),
     name: "박용태 외과 과장",
     title: "외과 · 임플란트 전문의",
     quote: "정확한 수술, 예측 가능한 결과",
@@ -62,7 +64,7 @@ export const DOCTORS: Doctor[] = [
   },
   {
     id: "yunsik-jung",
-    image: "/images/doctor3.png",
+    image: img("/images/doctor3.png"),
     name: "정윤식 진료과장",
     title: "보철 · 심미치료 전문의",
     quote: "자연스러움 속의 완성도",

@@ -1,10 +1,11 @@
 import Image from "next/image";
+import { img } from "@/lib/cloudflare-images";
 
 const Map = () => {
   return (
     <div className="relative w-full h-[400px] rounded-lg overflow-hidden soft-shadow">
       <Image
-        src="/images/clinic-map.jpg"
+        src={img("/images/clinic-map.jpg")}
         alt="Anyeong Plant Dental Clinic Location"
         fill
         className="object-cover"

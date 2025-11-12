@@ -1,0 +1,2 @@
+# Exclude images from production build (served via Cloudflare Images)
+public/images/

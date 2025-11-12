@@ -1,3 +1,5 @@
+import { img } from '@/lib/cloudflare-images';
+
 export interface FAQ {
   q: string;
   a: string;
@@ -15,7 +17,7 @@ export interface Treatment {
 export const TREATMENTS: Treatment[] = [
   {
     id: "implant",
-    image: "/images/treatment-implant.jpg",
+    image: img("/images/treatment-implant.jpg"),
     title: "임플란트",
     description: "자연스럽고 오래 지속되는 프리미엄 임플란트 솔루션",
     details:
@@ -37,7 +39,7 @@ export const TREATMENTS: Treatment[] = [
   },
   {
     id: "aesthetic",
-    image: "/images/treatment-aesthetic.jpg",
+    image: img("/images/treatment-aesthetic.jpg"),
     title: "심미 보철",
     description: "자연스러운 미소를 완성하는 맞춤형 심미 복원 치료",
     details:
@@ -59,7 +61,7 @@ export const TREATMENTS: Treatment[] = [
   },
   {
     id: "gum",
-    image: "/images/treatment-gum.jpg",
+    image: img("/images/treatment-gum.jpg"),
     title: "잇몸 재생",
     description: "건강한 잇몸과 균형 잡힌 구강을 위한 재생 치료",
     details:
@@ -81,7 +83,7 @@ export const TREATMENTS: Treatment[] = [
   },
   {
     id: "general",
-    image: "/images/treatment-general.jpg",
+    image: img("/images/treatment-general.jpg"),
     title: "스케일링 및 정기 관리",
     description: "건강한 구강을 위한 기본이 되는 예방 치료",
     details:
@@ -99,7 +101,7 @@ export const TREATMENTS: Treatment[] = [
   },
   {
     id: "orthodontics",
-    image: "/images/treatment-detail.jpg",
+    image: img("/images/treatment-detail.jpg"),
     title: "교정 치료",
     description: "연령에 관계없이 가능한 맞춤 교정 솔루션",
     details:
