@@ -6,7 +6,6 @@ import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/shared/ui/shadcn/button";
-import { img } from "@/lib/cloudflare-images";
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -48,8 +47,8 @@ const Navigation = () => {
             <Image
               src={
                 isTransparent
-                  ? img("/images/header_logo_white.png")
-                  : img("/images/header_logo.png")
+                  ? "https://imagedelivery.net/D7_5dYkkJ13ewclh1BY9Gg/header_logo_white/public"
+                  : "https://imagedelivery.net/D7_5dYkkJ13ewclh1BY9Gg/header_logo/public"
               }
               alt="Anyeong Plant Dental Clinic"
               width={1904}

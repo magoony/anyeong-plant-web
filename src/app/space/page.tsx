@@ -10,34 +10,33 @@ import Link from "next/link";
 import { Car, X, ChevronLeft, ChevronRight } from "lucide-react";
 import { FACILITIES, PARKING_INFO } from "@/constants/facilities";
 import { SPACE_CTA } from "@/constants/cta";
-import { img } from "@/lib/cloudflare-images";
 
 export default function SpacePage() {
   const [selectedImage, setSelectedImage] = React.useState<number | null>(null);
 
   const images = [
     {
-      src: img("/images/space/front-desk.png"),
+      src: "https://imagedelivery.net/D7_5dYkkJ13ewclh1BY9Gg/space-front-desk/public",
       title: "프론트 데스크",
       description: "따뜻한 조명과 정돈된 공간에서 편안한 첫 인사를 나눕니다",
     },
     {
-      src: img("/images/space/private-treatment-room.png"),
+      src: "https://imagedelivery.net/D7_5dYkkJ13ewclh1BY9Gg/space-private-treatment-room/public",
       title: "개인 진료실",
       description: "프라이버시가 보장되는 독립된 공간에서 집중된 진료가 이루어집니다",
     },
     {
-      src: img("/images/space/clinic-hallway.png"),
+      src: "https://imagedelivery.net/D7_5dYkkJ13ewclh1BY9Gg/space-clinic-hallway/public",
       title: "복도",
       description: "깔끔한 동선과 차분한 분위기 속에서 편안하게 이동합니다",
     },
     {
-      src: img("/images/space/waiting-lounge.png"),
+      src: "https://imagedelivery.net/D7_5dYkkJ13ewclh1BY9Gg/space-waiting-lounge/public",
       title: "대기 라운지",
       description: "자연스러운 빛과 여유로운 공기가 흐르는 휴식 공간",
     },
     {
-      src: img("/images/space/brushing-room.png"),
+      src: "https://imagedelivery.net/D7_5dYkkJ13ewclh1BY9Gg/space-brushing-room/public",
       title: "구강 케어룸",
       description: "진료 전후 편안하게 구강 케어를 할 수 있는 공간",
     },

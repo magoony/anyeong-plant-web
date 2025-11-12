@@ -5,10 +5,8 @@
   "scripts": {
     "dev": "next dev -p 3001",
     "build": "next build",
-    "build:production": "./scripts/build-production.sh",
     "start": "next start",
-    "lint": "eslint",
-    "upload:images": "tsx scripts/upload-to-cloudflare.ts"
+    "lint": "eslint"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.10.0",
@@ -40,7 +38,6 @@
     "@radix-ui/react-toggle-group": "^1.1.10",
     "@radix-ui/react-tooltip": "^1.2.7",
     "@tanstack/react-query": "^5.83.0",
-    "axios": "^1.13.2",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "cmdk": "^1.1.1",
@@ -70,10 +67,8 @@
     "autoprefixer": "^10.4.21",
     "eslint": "^9",
     "eslint-config-next": "16.0.0",
-    "form-data": "^4.0.1",
     "postcss": "^8.5.6",
     "tailwindcss": "^3.4.17",
-    "tsx": "^4.19.2",
     "typescript": "^5"
   }
 }
