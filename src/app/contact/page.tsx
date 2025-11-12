@@ -8,7 +8,7 @@ import ContactForm from "./_components/ContactForm";
 export const metadata: Metadata = {
   title: "진료 문의 - 안녕플란트치과",
   description:
-    "안녕플란트치과에 문의하세요. 진료 예약 및 상담을 도와드립니다. 서울특별시 강남구에 위치하고 있습니다.",
+    "안녕플란트치과에 문의하세요. 진료 예약 및 상담을 도와드립니다. 충청남도 당진시에 위치하고 있습니다.",
 };
 
 export default function ContactPage() {
@@ -37,9 +37,15 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <h3 className="font-medium mb-2">위치</h3>
-                    <p className="text-muted-foreground text-sm">
-                      서울특별시 강남구 강남대로 123
-                    </p>
+                    <a
+                      href="https://naver.me/GVADXmwO"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-muted-foreground text-sm hover:text-primary transition-colors inline-block"
+                    >
+                      충남 당진시 밤절로 132-99<br />
+                      나우프라자빌딩 2층 204-206호
+                    </a>
                   </div>
                 </div>
               </CardContent>
@@ -53,9 +59,12 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <h3 className="font-medium mb-2">전화</h3>
-                    <p className="text-muted-foreground text-sm">
-                      02-1234-5678
-                    </p>
+                    <a
+                      href="tel:05071331961"
+                      className="text-muted-foreground text-sm hover:text-primary transition-colors"
+                    >
+                      0507-1331-9617
+                    </a>
                   </div>
                 </div>
               </CardContent>

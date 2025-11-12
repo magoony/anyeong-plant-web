@@ -14,21 +14,21 @@ const FloatingActionBar = () => {
     {
       icon: Calendar,
       label: "네이버 예약",
-      href: "https://booking.naver.com/booking/6/bizes/1029009",
+      href: "https://booking.naver.com/booking/13/bizes/733466?theme=place&lang=ko&area=pll",
       color: "from-green-500 to-green-600",
       badge: "N",
     },
     {
       icon: Calendar,
       label: "카카오 예약",
-      href: "https://pf.kakao.com/_AxjxlZG",
+      href: "http://pf.kakao.com/_NxlMhG/friend",
       color: "from-yellow-400 to-yellow-500",
       badge: "K",
     },
     {
       icon: BookOpen,
       label: "블로그",
-      href: "https://blog.naver.com/annyeongplant",
+      href: "https://blog.naver.com/doctor_anyeong",
       color: "from-blue-500 to-blue-600",
     },
   ];

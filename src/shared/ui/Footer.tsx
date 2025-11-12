@@ -29,13 +29,19 @@ const Footer = () => {
               <MapPin className="mr-2 h-4 w-4" />
               Location
             </h4>
-            <p className="text-sm text-muted-foreground mb-4">
-              서울특별시 강남구 강남대로 123
-            </p>
-            <div className="flex items-center text-sm">
+            <a
+              href="https://naver.me/GVADXmwO"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-sm text-muted-foreground mb-4 hover:text-primary transition-colors inline-block"
+            >
+              충남 당진시 밤절로 132-99<br />
+              나우프라자빌딩 2층 204-206호
+            </a>
+            <div className="flex items-center text-sm mt-4">
               <Phone className="mr-2 h-4 w-4" />
-              <a href="tel:0212345678" className="hover:text-primary transition-colors">
-                02-1234-5678
+              <a href="tel:05071331961" className="hover:text-primary transition-colors">
+                0507-1331-9617
               </a>
             </div>
           </div>
