@@ -1,7 +1,7 @@
 import Section from "@/shared/ui/Section";
 import PageHeader from "@/shared/ui/PageHeader";
 import { Card, CardContent } from "@/shared/ui/shadcn/card";
-import { MapPin, Phone, Clock, Mail } from "lucide-react";
+import { MapPin, Phone, Clock, Info, MessageCircle } from "lucide-react";
 import { Metadata } from "next";
 import ContactForm from "./_components/ContactForm";
 
@@ -46,6 +46,10 @@ export default function ContactPage() {
                       충남 당진시 밤절로 132-99<br />
                       나우프라자빌딩 2층 204-206호
                     </a>
+                    <div className="flex items-start gap-2 text-muted-foreground/80 mt-3">
+                      <Info className="h-4 w-4 flex-shrink-0 mt-0.5" />
+                      <span className="text-xs">신터미널 농협 주차장 맞은편 주차빌딩 2층입니다.</span>
+                    </div>
                   </div>
                 </div>
               </CardContent>
@@ -70,21 +74,61 @@ export default function ContactPage() {
               </CardContent>
             </Card>
 
-            <Card className="soft-shadow">
-              <CardContent className="pt-6">
-                <div className="flex items-start space-x-4">
-                  <div className="w-12 h-12 rounded-full bg-accent/20 flex items-center justify-center flex-shrink-0">
-                    <Mail className="w-6 h-6 text-accent-foreground" />
+            <a
+              href="http://pf.kakao.com/_NxlMhG/friend"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block"
+            >
+              <Card className="soft-shadow hover:shadow-lg transition-all duration-300 border-2 border-transparent hover:border-yellow-400/50 bg-gradient-to-br from-yellow-50 to-yellow-100/50 dark:from-yellow-950/20 dark:to-yellow-900/10">
+                <CardContent className="pt-6">
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center space-x-4">
+                      <div className="w-12 h-12 rounded-full bg-yellow-400 flex items-center justify-center flex-shrink-0">
+                        <MessageCircle className="w-6 h-6 text-yellow-900" />
+                      </div>
+                      <div>
+                        <h3 className="font-medium mb-1">카카오톡 문의</h3>
+                        <p className="text-muted-foreground text-xs">
+                          빠른 상담 및 예약
+                        </p>
+                      </div>
+                    </div>
+                    <div className="text-yellow-600 dark:text-yellow-400 font-bold text-sm">
+                      →
+                    </div>
                   </div>
-                  <div>
-                    <h3 className="font-medium mb-2">이메일</h3>
-                    <p className="text-muted-foreground text-sm">
-                      info@anyeongplant.com
-                    </p>
+                </CardContent>
+              </Card>
+            </a>
+
+            <a
+              href="https://booking.naver.com/booking/13/bizes/733466?theme=place&lang=ko&area=pll"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block"
+            >
+              <Card className="soft-shadow hover:shadow-lg transition-all duration-300 border-2 border-transparent hover:border-green-500/50 bg-gradient-to-br from-green-50 to-green-100/50 dark:from-green-950/20 dark:to-green-900/10">
+                <CardContent className="pt-6">
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center space-x-4">
+                      <div className="w-12 h-12 rounded-full bg-green-500 flex items-center justify-center flex-shrink-0">
+                        <MessageCircle className="w-6 h-6 text-white" />
+                      </div>
+                      <div>
+                        <h3 className="font-medium mb-1">네이버 예약 문의</h3>
+                        <p className="text-muted-foreground text-xs">
+                          네이버로 간편 예약
+                        </p>
+                      </div>
+                    </div>
+                    <div className="text-green-600 dark:text-green-400 font-bold text-sm">
+                      →
+                    </div>
                   </div>
-                </div>
-              </CardContent>
-            </Card>
+                </CardContent>
+              </Card>
+            </a>
 
             <Card className="soft-shadow">
               <CardContent className="pt-6">
@@ -110,7 +154,7 @@ export default function ContactPage() {
       <Section background="card">
         <div className="aspect-video w-full rounded-lg overflow-hidden soft-shadow">
           <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3165.2989645072817!2d127.02456631531567!3d37.49766597981037!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357ca15a8b5a5c85%3A0x1d8f9c85d8f9c85!2sGangnam-gu%2C%20Seoul%2C%20South%20Korea!5e0!3m2!1sen!2sus!4v1234567890123"
+            src="https://maps.google.com/maps?q=36.9010819,126.6461048&hl=ko&z=18&output=embed"
             width="100%"
             height="100%"
             style={{ border: 0 }}

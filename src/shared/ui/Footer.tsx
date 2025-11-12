@@ -1,4 +1,4 @@
-import { MapPin, Phone, Clock } from "lucide-react";
+import { MapPin, Phone, Clock, Info } from "lucide-react";
 
 const Footer = () => {
   return (
@@ -38,7 +38,11 @@ const Footer = () => {
               충남 당진시 밤절로 132-99<br />
               나우프라자빌딩 2층 204-206호
             </a>
-            <div className="flex items-center text-sm mt-4">
+            <div className="flex items-start gap-2 text-sm text-muted-foreground/80 mt-3 mb-4">
+              <Info className="h-4 w-4 flex-shrink-0 mt-0.5" />
+              <span className="text-xs">신터미널 농협 주차장 맞은편 주차빌딩 2층입니다.</span>
+            </div>
+            <div className="flex items-center text-sm">
               <Phone className="mr-2 h-4 w-4" />
               <a href="tel:05071331961" className="hover:text-primary transition-colors">
                 0507-1331-9617
