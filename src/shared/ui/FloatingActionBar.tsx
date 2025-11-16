@@ -1,14 +1,14 @@
 "use client";
 
-import { MessageCircle, Calendar, BookOpen } from "lucide-react";
+import { MessageCircle, Calendar, BookOpen, Phone } from "lucide-react";
 import Link from "next/link";
 
 const FloatingActionBar = () => {
   const actions = [
     {
-      icon: MessageCircle,
-      label: "상담문의",
-      href: "/contact",
+      icon: Phone,
+      label: "전화문의",
+      href: "tel:05071331961",
       color: "from-primary/90 to-primary",
     },
     {
@@ -34,9 +34,85 @@ const FloatingActionBar = () => {
   ];
 
   return (
-    <div className="fixed right-6 top-1/2 -translate-y-1/2 z-50 hidden lg:block">
-      <div className="bg-black/50 backdrop-blur-md rounded-3xl p-4 shadow-2xl border border-white/10">
-        <div className="flex flex-col gap-3">
+    <>
+      {/* Mobile Bottom Bar */}
+      <div className="fixed bottom-0 left-0 right-0 z-50 lg:hidden pb-safe">
+        <div className="bg-black/50 backdrop-blur-md border-t border-white/10 shadow-2xl">
+          <div className="flex justify-around items-center px-4 py-3 gap-2">
+            {actions.map((action, index) => {
+              const Icon = action.icon;
+              const isExternal = action.href.startsWith("http");
+
+              if (isExternal) {
+                return (
+                  <a
+                    key={index}
+                    href={action.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group relative flex-1"
+                  >
+                    <div
+                      className={`
+                      relative h-14 rounded-xl bg-gradient-to-br ${action.color}
+                      shadow-md active:shadow-sm transition-all duration-200
+                      flex flex-col items-center justify-center gap-0.5
+                      active:scale-95
+                    `}
+                    >
+                      <Icon
+                        className="w-5 h-5 text-white relative z-10"
+                        strokeWidth={1.5}
+                      />
+                      <span className="text-[9px] text-white font-medium relative z-10 leading-tight">
+                        {action.label}
+                      </span>
+
+                      {action.badge && (
+                        <span className="absolute -top-1 -right-1 w-4 h-4 bg-white text-foreground text-[8px] font-bold rounded-full flex items-center justify-center shadow-md z-20">
+                          {action.badge}
+                        </span>
+                      )}
+                    </div>
+                  </a>
+                );
+              }
+
+              return (
+                <Link key={index} href={action.href} className="group relative flex-1">
+                  <div
+                    className={`
+                    relative h-14 rounded-xl bg-gradient-to-br ${action.color}
+                    shadow-md active:shadow-sm transition-all duration-200
+                    flex flex-col items-center justify-center gap-0.5
+                    active:scale-95
+                  `}
+                  >
+                    <Icon
+                      className="w-5 h-5 text-white relative z-10"
+                      strokeWidth={1.5}
+                    />
+                    <span className="text-[9px] text-white font-medium relative z-10 leading-tight">
+                      {action.label}
+                    </span>
+
+                    {action.badge && (
+                      <span className="absolute -top-1 -right-1 w-4 h-4 bg-white text-foreground text-[8px] font-bold rounded-full flex items-center justify-center shadow-md z-20">
+                        {action.badge}
+                      </span>
+                    )}
+                  </div>
+                </Link>
+              );
+            })}
+          </div>
+        </div>
+      </div>
+
+      {/* Desktop Side Bar */}
+      <div className="fixed right-6 top-1/2 -translate-y-1/2 z-50 hidden lg:block">
+        <div className="bg-black/50 backdrop-blur-md rounded-3xl p-4 shadow-2xl border border-white/10">
+          <div className="flex flex-col gap-3">
           {actions.map((action, index) => {
             const Icon = action.icon;
             const isExternal = action.href.startsWith("http");
@@ -109,7 +185,8 @@ const FloatingActionBar = () => {
           })}
         </div>
       </div>
-    </div>
+      </div>
+    </>
   );
 };
 
