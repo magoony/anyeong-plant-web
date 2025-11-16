@@ -22,7 +22,7 @@ export const CORE_TREATMENTS: CoreTreatment[] = [
   },
   {
     image: "https://imagedelivery.net/D7_5dYkkJ13ewclh1BY9Gg/treatment-gum/public",
-    title: "잇몸 재생",
+    title: "자연치아 살리기",
     description:
       "건강한 잇몸을 회복시켜 구강의 균형과 기초를 튼튼히 하는 재생 치료.",
     link: "/treatments#gum",

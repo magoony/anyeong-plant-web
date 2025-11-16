@@ -22,7 +22,7 @@ export const TESTIMONIALS: Testimonial[] = [
   },
   {
     name: "이수정",
-    treatment: "잇몸 재생 치료",
+    treatment: "자연치아 살리기",
     rating: 5,
     comment:
       "잇몸이 많이 내려가서 고민이었는데, 재생 치료 후 정말 좋아졌어요. 원장님께서 꼼꼼하게 케어해주셔서 감사합니다.",
