@@ -31,18 +31,18 @@ const Navigation = () => {
 
   const isActive = (path: string) => pathname === path;
   const isHomePage = pathname === "/";
-  const isTransparent = !isScrolled && isHomePage;
+  const isTransparent = !isScrolled && !isOpen && isHomePage;
 
   return (
     <nav
       className={`fixed top-0 left-0 right-0 z-50 ${
-        isScrolled
+        isScrolled || isOpen
           ? "bg-background/95 backdrop-blur-sm border-b border-border"
           : "bg-transparent"
       }`}
     >
       <div className="container-custom">
-        <div className="flex items-center justify-between h-20">
+        <div className="flex items-center justify-between h-16 md:h-20 px-4 md:px-0">
           <Link href="/" className="flex items-center space-x-2">
             <Image
               src={
@@ -53,7 +53,7 @@ const Navigation = () => {
               alt="Anyeong Plant Dental Clinic"
               width={1904}
               height={382}
-              className="h-10 w-auto"
+              className="h-9 md:h-10 w-auto"
               priority
             />
           </Link>
@@ -102,7 +102,9 @@ const Navigation = () => {
         {isOpen && (
           <div
             className={`md:hidden py-4 border-t ${
-              isTransparent ? "border-white/20" : "border-border"
+              isTransparent
+                ? "border-white/20 bg-background/95 backdrop-blur-sm"
+                : "border-border bg-background"
             }`}
           >
             <div className="flex flex-col space-y-2">
@@ -116,11 +118,7 @@ const Navigation = () => {
                     variant="ghost"
                     className={`w-full justify-start ${
                       isActive(item.path)
-                        ? isTransparent
-                          ? "text-white font-bold"
-                          : "text-foreground font-medium"
-                        : isTransparent
-                        ? "text-white/90 font-semibold"
+                        ? "text-foreground font-medium"
                         : "text-muted-foreground"
                     }`}
                   >
