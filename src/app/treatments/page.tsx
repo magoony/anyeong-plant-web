@@ -33,8 +33,8 @@ export default function TreatmentsPage() {
   }, []);
 
   return (
-    <main className="pt-20">
-      <Section>
+    <main className="pt-16 md:pt-20">
+      <Section background="accent">
         <PageHeader
           title="Our Treatments"
           description="정밀함 속에 담긴 편안함"

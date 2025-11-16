@@ -13,8 +13,8 @@ export const metadata: Metadata = {
 
 export default function ContactPage() {
   return (
-    <main className="pt-20">
-      <Section>
+    <main className="pt-16 md:pt-20">
+      <Section background="accent">
         <PageHeader
           title="진료 문의"
           description="당신의 안녕이 시작되는 순간"

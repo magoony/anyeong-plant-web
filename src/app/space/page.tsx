@@ -42,8 +42,8 @@ export default function SpacePage() {
   ];
 
   return (
-    <main className="pt-20">
-      <Section>
+    <main className="pt-16 md:pt-20">
+      <Section background="accent">
         <PageHeader
           title="Our Space"
           description="편안함과 배려가 머무는 공간"
