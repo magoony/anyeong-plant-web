@@ -12,6 +12,34 @@ import { SPACE_CTA } from "@/constants/cta";
 
 export default function SpacePage() {
   const [selectedImage, setSelectedImage] = React.useState<number | null>(null);
+  const [touchStart, setTouchStart] = React.useState<number | null>(null);
+  const [touchEnd, setTouchEnd] = React.useState<number | null>(null);
+
+  const minSwipeDistance = 50;
+
+  const onTouchStart = (e: React.TouchEvent) => {
+    setTouchEnd(null);
+    setTouchStart(e.targetTouches[0].clientX);
+  };
+
+  const onTouchMove = (e: React.TouchEvent) => {
+    setTouchEnd(e.targetTouches[0].clientX);
+  };
+
+  const onTouchEnd = () => {
+    if (!touchStart || !touchEnd) return;
+
+    const distance = touchStart - touchEnd;
+    const isLeftSwipe = distance > minSwipeDistance;
+    const isRightSwipe = distance < -minSwipeDistance;
+
+    if (isLeftSwipe && selectedImage !== null && selectedImage < images.length - 1) {
+      setSelectedImage(selectedImage + 1);
+    }
+    if (isRightSwipe && selectedImage !== null && selectedImage > 0) {
+      setSelectedImage(selectedImage - 1);
+    }
+  };
 
   const images = [
     {
@@ -51,7 +79,7 @@ export default function SpacePage() {
         />
       </Section>
 
-      <Section background="card">
+      <Section>
         <div className="grid md:grid-cols-2 gap-8 mb-16">
           <div>
             <h2 className="ty-h3 mb-4">Privacy & Comfort</h2>
@@ -80,7 +108,7 @@ export default function SpacePage() {
         </div>
       </Section>
 
-      <Section>
+      <Section background="accent">
         <h2 className="ty-h2 mb-12 text-center">공간 둘러보기</h2>
         <div className="columns-1 md:columns-2 lg:columns-3 gap-8 space-y-8">
           {images.map((image, index) => (
@@ -107,39 +135,65 @@ export default function SpacePage() {
         {/* Image Viewer Modal */}
         {selectedImage !== null && (
           <div
-            className="fixed inset-0 bg-black/95 z-50 flex items-center justify-center p-4"
+            className="fixed inset-0 bg-black/95 z-50 flex items-center justify-center p-4 group"
             onClick={() => setSelectedImage(null)}
           >
             <button
-              className="absolute top-4 right-4 text-white/80 hover:text-white p-2"
+              className="absolute top-4 right-4 text-white/80 hover:text-white p-2 z-10"
               onClick={() => setSelectedImage(null)}
             >
               <X size={32} />
             </button>
 
             <button
-              className="absolute left-4 text-white/80 hover:text-white p-2 disabled:opacity-30"
+              className="absolute left-4 top-1/2 -translate-y-1/2 text-white/80 hover:text-white p-2 opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity z-10"
               onClick={(e) => {
                 e.stopPropagation();
                 setSelectedImage((prev) => (prev! > 0 ? prev! - 1 : images.length - 1));
               }}
-              disabled={selectedImage === 0}
             >
               <ChevronLeft size={48} />
             </button>
 
             <button
-              className="absolute right-4 text-white/80 hover:text-white p-2 disabled:opacity-30"
+              className="absolute right-4 top-1/2 -translate-y-1/2 text-white/80 hover:text-white p-2 opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity z-10"
               onClick={(e) => {
                 e.stopPropagation();
                 setSelectedImage((prev) => (prev! < images.length - 1 ? prev! + 1 : 0));
               }}
-              disabled={selectedImage === images.length - 1}
             >
               <ChevronRight size={48} />
             </button>
 
-            <div className="max-w-7xl max-h-[90vh] flex flex-col items-center" onClick={(e) => e.stopPropagation()}>
+            {/* Mobile layout: centered image with fixed bottom description */}
+            <div className="md:hidden w-full h-full flex flex-col pb-safe">
+              <div
+                className="absolute inset-0 flex items-center justify-center px-4"
+                onClick={(e) => e.stopPropagation()}
+                onTouchStart={onTouchStart}
+                onTouchMove={onTouchMove}
+                onTouchEnd={onTouchEnd}
+              >
+                <Image
+                  src={images[selectedImage].src}
+                  alt={images[selectedImage].title}
+                  width={1920}
+                  height={1440}
+                  quality={95}
+                  className="max-w-full max-h-full object-contain"
+                />
+              </div>
+              <div className="absolute bottom-0 left-0 right-0 pb-8 pt-4 text-center text-white bg-gradient-to-t from-black/60 to-transparent">
+                <h3 className="text-xl font-medium mb-2">{images[selectedImage].title}</h3>
+                <p className="text-white/80 text-sm">{images[selectedImage].description}</p>
+              </div>
+            </div>
+
+            {/* Desktop layout: centered image with description below */}
+            <div
+              className="hidden md:flex max-w-7xl max-h-[90vh] flex-col items-center"
+              onClick={(e) => e.stopPropagation()}
+            >
               <div className="relative w-full max-h-[80vh]">
                 <Image
                   src={images[selectedImage].src}
@@ -159,7 +213,7 @@ export default function SpacePage() {
         )}
       </Section>
 
-      <Section background="card">
+      <Section>
         <h2 className="ty-h2 mb-12 text-center">
           시설 안내
         </h2>

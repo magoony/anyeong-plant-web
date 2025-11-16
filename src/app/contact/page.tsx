@@ -22,7 +22,7 @@ export default function ContactPage() {
         />
       </Section>
 
-      <Section background="card">
+      <Section>
         <div className="max-w-4xl mx-auto flex flex-col gap-6 ">
           <div className="grid md:grid-cols-2 gap-6">
             <Card className="soft-shadow">
@@ -73,17 +73,17 @@ export default function ContactPage() {
             </Card>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-3 gap-3 md:gap-6">
             <a href="tel:05071331961" className="block">
               <Card className="soft-shadow hover:shadow-lg transition-all duration-300 border-2 border-transparent hover:border-primary/50 h-full">
-                <CardContent className="pt-6">
-                  <div className="flex flex-col items-center text-center space-y-3">
-                    <div className="w-12 h-12 rounded-full bg-accent/20 flex items-center justify-center">
-                      <Phone className="w-6 h-6 text-accent-foreground" />
+                <CardContent className="pt-4 md:pt-6 px-2 md:px-6">
+                  <div className="flex flex-col items-center text-center space-y-2 md:space-y-3">
+                    <div className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-accent/20 flex items-center justify-center">
+                      <Phone className="w-5 h-5 md:w-6 md:h-6 text-accent-foreground" />
                     </div>
                     <div>
-                      <h3 className="font-medium mb-1">전화 문의</h3>
-                      <p className="text-muted-foreground text-xs">
+                      <h3 className="text-xs md:text-base font-medium mb-1">전화 문의</h3>
+                      <p className="text-muted-foreground text-[10px] md:text-xs">
                         0507-1331-9617
                       </p>
                     </div>
@@ -99,14 +99,14 @@ export default function ContactPage() {
               className="block"
             >
               <Card className="soft-shadow hover:shadow-lg transition-all duration-300 border-2 border-transparent hover:border-yellow-400/50 bg-gradient-to-br from-yellow-50 to-yellow-100/50 dark:from-yellow-950/20 dark:to-yellow-900/10 h-full">
-                <CardContent className="pt-6">
-                  <div className="flex flex-col items-center text-center space-y-3">
-                    <div className="w-12 h-12 rounded-full bg-yellow-400 flex items-center justify-center">
-                      <MessageCircle className="w-6 h-6 text-yellow-900" />
+                <CardContent className="pt-4 md:pt-6 px-2 md:px-6">
+                  <div className="flex flex-col items-center text-center space-y-2 md:space-y-3">
+                    <div className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-yellow-400 flex items-center justify-center">
+                      <MessageCircle className="w-5 h-5 md:w-6 md:h-6 text-yellow-900" />
                     </div>
                     <div>
-                      <h3 className="font-medium mb-1">카카오톡 문의</h3>
-                      <p className="text-muted-foreground text-xs">
+                      <h3 className="text-xs md:text-base font-medium mb-1">카카오톡 문의</h3>
+                      <p className="text-muted-foreground text-[10px] md:text-xs">
                         빠른 상담 및 예약
                       </p>
                     </div>
@@ -122,14 +122,14 @@ export default function ContactPage() {
               className="block"
             >
               <Card className="soft-shadow hover:shadow-lg transition-all duration-300 border-2 border-transparent hover:border-green-500/50 bg-gradient-to-br from-green-50 to-green-100/50 dark:from-green-950/20 dark:to-green-900/10 h-full">
-                <CardContent className="pt-6">
-                  <div className="flex flex-col items-center text-center space-y-3">
-                    <div className="w-12 h-12 rounded-full bg-green-500 flex items-center justify-center">
-                      <MessageCircle className="w-6 h-6 text-white" />
+                <CardContent className="pt-4 md:pt-6 px-2 md:px-6">
+                  <div className="flex flex-col items-center text-center space-y-2 md:space-y-3">
+                    <div className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-green-500 flex items-center justify-center">
+                      <MessageCircle className="w-5 h-5 md:w-6 md:h-6 text-white" />
                     </div>
                     <div>
-                      <h3 className="font-medium mb-1">네이버 예약 문의</h3>
-                      <p className="text-muted-foreground text-xs">
+                      <h3 className="text-xs md:text-base font-medium mb-1">네이버 예약 문의</h3>
+                      <p className="text-muted-foreground text-[10px] md:text-xs">
                         네이버로 간편 예약
                       </p>
                     </div>
@@ -152,10 +152,13 @@ export default function ContactPage() {
             />
           </div>
 
-          <div className="flex flex-col gap-8 pt-24 w-full">
-            <h2 className="ty-h2 text-center">시설 안내</h2>
-            <FacilitiesInfo />
-          </div>
+        </div>
+      </Section>
+
+      <Section background="accent">
+        <div className="max-w-4xl mx-auto">
+          <h2 className="ty-h2 text-center mb-12">시설 안내</h2>
+          <FacilitiesInfo />
         </div>
       </Section>
     </main>
