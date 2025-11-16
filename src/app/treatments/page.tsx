@@ -42,76 +42,115 @@ export default function TreatmentsPage() {
         />
       </Section>
 
-      <Section background="card">
-        <div className="space-y-16">
-          {TREATMENTS.map((treatment, index) => (
+      {TREATMENTS.map((treatment, index) => (
+        <Section
+          key={treatment.id}
+          background={index % 2 === 0 ? "default" : "accent"}
+          id={treatment.id}
+          className="!py-12 md:!py-20"
+        >
+          <div className="scroll-mt-20">
+            {/* Mobile layout: Title -> Description -> Image -> Rest */}
+            <div className="md:hidden space-y-6">
+              <div>
+                <h2 className="text-3xl md:ty-h2 font-semibold md:font-medium mb-4 md:mb-3">
+                  {treatment.title}
+                </h2>
+                <p className="text-base md:ty-lead font-semibold md:font-normal text-muted-foreground leading-relaxed">
+                  {treatment.description}
+                </p>
+              </div>
+
+              <Image
+                src={treatment.image}
+                alt={treatment.title}
+                width={800}
+                height={400}
+                className="rounded-lg soft-shadow w-full aspect-[2/1] object-cover"
+              />
+
+              <p className="ty-body text-foreground/90">
+                {treatment.details}
+              </p>
+
+              <div>
+                <h3 className="ty-h3 mb-4">
+                  Frequently Asked Questions
+                </h3>
+                <Accordion type="single" collapsible className="w-full">
+                  {treatment.faqs.map((faq, idx) => (
+                    <AccordionItem key={idx} value={`item-${idx}`}>
+                      <AccordionTrigger className="text-left">
+                        {faq.q}
+                      </AccordionTrigger>
+                      <AccordionContent className="text-muted-foreground">
+                        {faq.a}
+                      </AccordionContent>
+                    </AccordionItem>
+                  ))}
+                </Accordion>
+              </div>
+            </div>
+
+            {/* Desktop layout: Image (alternating sides) | Content */}
             <div
-              key={treatment.id}
-              id={treatment.id}
-              className="scroll-mt-20"
+              className={`hidden md:grid md:grid-cols-2 gap-12 lg:gap-16 items-start ${
+                index % 2 === 1 ? "md:flex-row-reverse" : ""
+              }`}
             >
               <div
-                className={`grid md:grid-cols-2 gap-12 lg:gap-16 items-start ${
-                  index % 2 === 1 ? "md:flex-row-reverse" : ""
+                className={`${
+                  index % 2 === 1 ? "md:order-2" : "md:order-1"
                 }`}
               >
-                <div
-                  className={`${
-                    index % 2 === 1 ? "md:order-2" : "md:order-1"
-                  }`}
-                >
-                  <Image
-                    src={treatment.image}
-                    alt={treatment.title}
-                    width={800}
-                    height={400}
-                    className="rounded-lg soft-shadow w-full h-[400px] object-cover"
-                  />
-                </div>
-                <div
-                  className={`space-y-6 ${
-                    index % 2 === 1 ? "md:order-1" : "md:order-2"
-                  }`}
-                >
-                  <div>
-                    <h2 className="ty-h2 mb-3">
-                      {treatment.title}
-                    </h2>
-                    <p className="ty-lead text-muted-foreground">
-                      {treatment.description}
-                    </p>
-                  </div>
-
-                  <p className="ty-body text-foreground/90">
-                    {treatment.details}
+                <Image
+                  src={treatment.image}
+                  alt={treatment.title}
+                  width={800}
+                  height={400}
+                  className="rounded-lg soft-shadow w-full h-[400px] object-cover"
+                />
+              </div>
+              <div
+                className={`space-y-6 ${
+                  index % 2 === 1 ? "md:order-1" : "md:order-2"
+                }`}
+              >
+                <div>
+                  <h2 className="ty-h2 mb-3">
+                    {treatment.title}
+                  </h2>
+                  <p className="ty-lead text-muted-foreground">
+                    {treatment.description}
                   </p>
+                </div>
 
-                  <div>
-                    <h3 className="ty-h3 mb-4">
-                      Frequently Asked Questions
-                    </h3>
-                    <Accordion type="single" collapsible className="w-full">
-                      {treatment.faqs.map((faq, idx) => (
-                        <AccordionItem key={idx} value={`item-${idx}`}>
-                          <AccordionTrigger className="text-left">
-                            {faq.q}
-                          </AccordionTrigger>
-                          <AccordionContent className="text-muted-foreground">
-                            {faq.a}
-                          </AccordionContent>
-                        </AccordionItem>
-                      ))}
-                    </Accordion>
-                  </div>
+                <p className="ty-body text-foreground/90">
+                  {treatment.details}
+                </p>
+
+                <div>
+                  <h3 className="ty-h3 mb-4">
+                    Frequently Asked Questions
+                  </h3>
+                  <Accordion type="single" collapsible className="w-full">
+                    {treatment.faqs.map((faq, idx) => (
+                      <AccordionItem key={idx} value={`item-${idx}`}>
+                        <AccordionTrigger className="text-left">
+                          {faq.q}
+                        </AccordionTrigger>
+                        <AccordionContent className="text-muted-foreground">
+                          {faq.a}
+                        </AccordionContent>
+                      </AccordionItem>
+                    ))}
+                  </Accordion>
                 </div>
               </div>
-              {index < TREATMENTS.length - 1 && (
-                <div className="mt-16 border-b border-border/50" />
-              )}
             </div>
-          ))}
-        </div>
-      </Section>
+          </div>
+        </Section>
+      ))}
 
       <CTASection
         title={TREATMENTS_CTA.title}
