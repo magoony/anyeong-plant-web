@@ -10,7 +10,7 @@ interface SectionProps {
 const Section = ({ children, className = "", background = "default", id }: SectionProps) => {
   const bgClass =
     background === "card" ? "bg-card" :
-    background === "accent" ? "bg-accent/8" :
+    background === "accent" ? "bg-accent/25" :
     "bg-background";
 
   return (

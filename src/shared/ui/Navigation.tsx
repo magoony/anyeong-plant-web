@@ -136,7 +136,7 @@ const Navigation = () => {
                 </span>
                 <ThemeSelector />
               </div> */}
-              <Link href="/contact" onClick={() => setIsOpen(false)}>
+              <Link href="/contact" onClick={() => setIsOpen(false)} className="px-4">
                 <Button variant="default" className="w-full mt-2">
                   Book Appointment
                 </Button>

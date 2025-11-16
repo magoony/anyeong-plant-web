@@ -32,8 +32,28 @@ export default function HomePage() {
       />
 
       <Section>
-        <div className="grid md:grid-cols-2 gap-12 lg:gap-16 items-center">
-          <div className="order-2 md:order-1">
+        {/* Mobile layout: Title -> Image -> Content */}
+        <div className="md:hidden space-y-6">
+          <h2 className="ty-h2 whitespace-pre-line text-2xl">
+            {ABOUT.title}
+          </h2>
+          <Image
+            src={ABOUT.image}
+            alt="Anyeong Plant Dental Clinic Team"
+            width={800}
+            height={800}
+            className="rounded-lg soft-shadow w-full aspect-square object-cover"
+          />
+          <div className="space-y-4 text-muted-foreground">
+            {ABOUT.paragraphs.map((paragraph, index) => (
+              <p key={index} className="ty-body">{paragraph}</p>
+            ))}
+          </div>
+        </div>
+
+        {/* Desktop layout: Image (left) | Title+Content (right) */}
+        <div className="hidden md:grid md:grid-cols-2 gap-12 lg:gap-16 items-center">
+          <div>
             <Image
               src={ABOUT.image}
               alt="Anyeong Plant Dental Clinic Team"
@@ -42,7 +62,7 @@ export default function HomePage() {
               className="rounded-lg soft-shadow w-full h-[500px] object-cover"
             />
           </div>
-          <div className="order-1 md:order-2 space-y-6">
+          <div className="space-y-6">
             <h2 className="ty-h2 whitespace-pre-line">
               {ABOUT.title}
             </h2>
@@ -57,7 +77,7 @@ export default function HomePage() {
 
       <Section background="accent">
         <div className="text-center mb-16">
-          <h2 className="ty-h2 mb-4">
+          <h2 className="ty-h2 mb-4 text-3xl md:text-4xl">
             {DOCTORS_SECTION.title}
           </h2>
           <p className="ty-lead text-muted-foreground max-w-2xl mx-auto">
@@ -103,7 +123,30 @@ export default function HomePage() {
       </Section>
 
       <Section background="accent">
-        <div className="grid md:grid-cols-2 gap-16 items-center">
+        {/* Mobile layout: Title -> Image -> Content */}
+        <div className="md:hidden space-y-6">
+          <h2 className="ty-h2 text-2xl md:whitespace-normal whitespace-pre-line">
+            우리는 치아가 아닌{'\n'}사람을 봅니다.
+          </h2>
+          <Image
+            src={PHILOSOPHY.image}
+            alt="Dr. Kim"
+            width={800}
+            height={600}
+            className="rounded-lg soft-shadow w-full h-auto"
+          />
+          {PHILOSOPHY.paragraphs.map((paragraph, index) => (
+            <p
+              key={index}
+              className="ty-body text-muted-foreground"
+            >
+              {paragraph}
+            </p>
+          ))}
+        </div>
+
+        {/* Desktop layout: Image (left) | Title+Content (right) */}
+        <div className="hidden md:grid md:grid-cols-2 gap-16 items-center">
           <div>
             <Image
               src={PHILOSOPHY.image}
@@ -130,8 +173,37 @@ export default function HomePage() {
       </Section>
 
       <Section>
-        <div className="grid md:grid-cols-2 gap-16 items-center">
-          <div className="order-2 md:order-1">
+        {/* Mobile layout: Title -> Image -> Content */}
+        <div className="md:hidden space-y-6">
+          <h2 className="ty-h2 text-2xl md:whitespace-normal whitespace-pre-line">
+            진료 이전에,{'\n'}안녕을 느끼는 공간
+          </h2>
+          <Image
+            src={SPACE_SECTION.image}
+            alt="Our space"
+            width={800}
+            height={600}
+            className="rounded-lg soft-shadow w-full h-auto"
+          />
+          {SPACE_SECTION.paragraphs.map((paragraph, index) => (
+            <p
+              key={index}
+              className="ty-body text-muted-foreground"
+            >
+              {paragraph}
+            </p>
+          ))}
+          <Link
+            href={SPACE_SECTION.link.href}
+            className="text-primary hover:underline inline-flex items-center"
+          >
+            {SPACE_SECTION.link.text}
+          </Link>
+        </div>
+
+        {/* Desktop layout: Title+Content (left) | Image (right) */}
+        <div className="hidden md:grid md:grid-cols-2 gap-16 items-center">
+          <div>
             <h2 className="ty-h2 mb-6">
               {SPACE_SECTION.title}
             </h2>
@@ -150,7 +222,7 @@ export default function HomePage() {
               {SPACE_SECTION.link.text}
             </Link>
           </div>
-          <div className="order-1 md:order-2">
+          <div>
             <Image
               src={SPACE_SECTION.image}
               alt="Our space"
@@ -162,7 +234,7 @@ export default function HomePage() {
         </div>
       </Section>
 
-      <Section>
+      <Section background="accent">
         <div className="text-center mb-16">
           <h2 className="ty-h2 mb-4">
             {TESTIMONIALS_SECTION.title}
